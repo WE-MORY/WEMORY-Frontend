@@ -1,0 +1,23 @@
+/* @font-face 
+{
+    font-family: "Spoqa ";
+    src: local("Eland"),
+      url("./component/assets/Font/Eland.ttf") format("truetype"),
+      url("./component/assets/Font/Eland.otf") format("opentype")
+  }
+  
+@font-face 
+{
+    font-family: "Eland";
+    src: local("Eland"),
+      url("./component/assets/Font/Eland.ttf") format("truetype"),
+      url("./component/assets/Font/Eland.otf") format("opentype")
+}
+
+@font-face 
+{
+    font-family: "Eland";
+    src: local("Eland"),
+      url("./component/assets/Font/Eland.ttf") format("truetype"),
+      url("./component/assets/Font/Eland.otf") format("opentype")
+  } */
