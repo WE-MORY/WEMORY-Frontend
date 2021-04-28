@@ -1,5 +1,5 @@
 import React from 'react';
-import '../util/CSS/app.css';
+import '../assets/CSS/app.css';
 import {createGlobalStyle} from 'styled-components';
 
 import Button from '../assets/Button/Button';

@@ -1,23 +1,30 @@
-/* @font-face 
+@font-face 
 {
-    font-family: "Spoqa ";
-    src: local("Eland"),
-      url("./component/assets/Font/Eland.ttf") format("truetype"),
-      url("./component/assets/Font/Eland.otf") format("opentype")
-  }
+    font-family: "Spoqa-Light";
+    src: local("Spoqa-Light"),
+      url("../Font/Spoqa-Light.ttf") format("truetype"),
+      url("../Font/Spoqa-Light.otf") format("opentype")
+}
   
 @font-face 
 {
-    font-family: "Eland";
-    src: local("Eland"),
-      url("./component/assets/Font/Eland.ttf") format("truetype"),
-      url("./component/assets/Font/Eland.otf") format("opentype")
+    font-family: "Spoqa-Regular";
+    src: local("Spoqa-Regular"),
+      url("../Font/Spoqa-Regular.ttf") format("truetype"),
+      url("../Font/Spoqa-Regular.otf") format("opentype")
 }
 
 @font-face 
 {
-    font-family: "Eland";
-    src: local("Eland"),
-      url("./component/assets/Font/Eland.ttf") format("truetype"),
-      url("./component/assets/Font/Eland.otf") format("opentype")
-  } */
+    font-family: "Spoqa-Medium";
+    src: local("Spoqa-Medium"),
+      url("../Font/Spoqa-Medium.ttf") format("truetype"),
+      url("../Font/Spoqa-Medium.otf") format("opentype")
+}
+
+@font-face 
+{
+    font-family: "Cafe24";
+    src: local("Cafe24"),
+      url("../Font/Cafe24.ttf") format("truetype")
+}
