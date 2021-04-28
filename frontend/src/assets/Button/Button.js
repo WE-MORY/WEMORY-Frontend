@@ -3,6 +3,7 @@ import {TEXT_WHITE, MAIN_COLOR} from '../Colors/Color';
 import styled from 'styled-components';
 
 const Btn = styled.button`
+    font-family: "Spoqa-Regular";
     width: 240px;
     height: 40px;
     border-radius: 30px;
