@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Btn = styled.button`
     font-family: "Spoqa-Regular";
-    width: 240px;
+    width: ${props=>props.width || '100%'};
     height: 40px;
     border-radius: 30px;
     background-color: ${props=>props.color || MAIN_COLOR};
@@ -23,9 +23,9 @@ const Btn = styled.button`
     }
 `;
 
-const Button = ({Color, Text}) => {
+const Button = ({Width, Color, Text}) => {
     return (
-        <Btn color={Color}>{Text}</Btn>
+        <Btn width={Width} color={Color}>{Text}</Btn>
     );
 }
 
