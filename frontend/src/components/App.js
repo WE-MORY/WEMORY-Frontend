@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import '../assets/CSS/app.css';
+import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
@@ -38,6 +39,13 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
+html{
+  /* rem 기준 */
+  font-size: 12px;
+  color: ${TEXT_BLACK};
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
