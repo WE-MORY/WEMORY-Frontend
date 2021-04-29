@@ -21,9 +21,9 @@ const InputStyle = styled.input`
     }
     `
 
-const Input = ({Width, Hint, Type, OnChange}) => {
+const Input = ({Ref, Width, Hint, Type, OnChange}) => {
     return (
-            <InputStyle type={Type} onChange={OnChange} width={Width} placeholder={Hint}/>  
+            <InputStyle ref={Ref} type={Type} onChange={OnChange} width={Width} placeholder={Hint}/>  
     );
 }
 
