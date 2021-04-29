@@ -21,11 +21,11 @@ const HeaderPanel = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
+    height: 8vh;
     width: 100%;
     background-color: white;
     // 크기 확인용 border. 
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     
     `
