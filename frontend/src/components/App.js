@@ -16,6 +16,9 @@ import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
 import Signup from './AccountPanel/Account/Signup';
 import LoginPage from './AccountPanel/Login/LoginPage';
 import Main from './MainPanel/Main';
+import List from './DiaryPanel/DiaryList/List';
+import Create from './DiaryPanel/DiaryDetail/Create';
+
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -89,6 +92,8 @@ const App = () => {
         <BrowserRouter>
           <MobileContainer>
             <Route exact path='/' component={Main}/>
+            <Route path = '/DiaryList' component={List} />
+            <Route path = '/DiaryCreate' component={Create} />
             <Route path='/login' component={LoginPage} />
             <Route path='/signup' component={Signup} />
           </MobileContainer>
