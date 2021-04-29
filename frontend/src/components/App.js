@@ -5,18 +5,16 @@
 import React from 'react';
 import {
   Route,
-  Redirect,
   BrowserRouter
 } from "react-router-dom";
 
 import '../assets/CSS/app.css';
+import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
-import Button from '../assets/Button/Button';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
-import {SUB_COLOR} from '../assets/Colors/Color';
-import Main from './MainPanel/Main';
 import AccountPage from './AccountPanel/Account/AccountPage';
 import LoginPage from './AccountPanel/Login/LoginPage';
+import Main from './MainPanel/Main';
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -65,25 +63,35 @@ border-spacing: 0;
 }
 `;
 
+const MobileContainer = styled.div`
+  font-family: 'Spoqa-Light';
+  width: 100%;
+  height: 640px;
+`;
+
 
 const App = () => {
 
   return (
-    <BrowserRouter>
+    <>
       <GlobalStyle />
       {/* 모바일 환경 */}
       <Mobile> 
         {/* Router 추가 */}
-        <Button Color={SUB_COLOR} Text="로그인"/>
-        {/* <Route exact path='/' components={Main} />
-        <Route path='/login' components={LoginPage} />
-        <Route path='/account' components={AccountPage} /> */}
+        <BrowserRouter>
+          <MobileContainer>
+            <Route exact path='/' component={Main}/>
+            <Route path='/login' component={LoginPage} />
+            <Route path='/account' component={AccountPage} />
+          </MobileContainer>
+        </BrowserRouter>
       </Mobile>
+      
       {/* 데스크톱 환경 */}
       <Desktop>
         모바일만 된답니다. 돌아가세요
       </Desktop>
-    </BrowserRouter>
+    </>
   );
 }
 
