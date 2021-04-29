@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../HeaderPanel/Header';
 import {ReactComponent as LightLogo} from '../../assets/Images/MainLogoLight2.svg';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import { MAIN_COLOR } from '../../assets/Colors/Color';
 
 const MainDiv = styled.div`
@@ -24,9 +25,7 @@ const Main = () => {
 
             <MainDiv>
                 <LightLogo height="6vh" width="50vw" />
-                <svg width="250" height="250">
-                    <circle cx="125" cy="125" r="124" stroke={MAIN_COLOR} stroke-width="1" fill="none">안녕</circle>
-                </svg>
+                <Circle stroke = {MAIN_COLOR}/>
                 <Text>텍스트가 가운데에 들어갈까요 ?</Text>
             </MainDiv>
         </>
