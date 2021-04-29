@@ -1,10 +1,12 @@
+// 4. 29.
+// 민석 :: Global Reset.css 적용 및 MediaQuery 적용
 import React from 'react';
 import '../assets/CSS/app.css';
 import {createGlobalStyle} from 'styled-components';
 import Button from '../assets/Button/Button';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
 
-
+// RESET.CSS
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe, button,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -57,9 +59,11 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Mobile>
+      {/* 모바일 환경 */}
+      <Mobile> 
         <Button Text="로그인하기"/>
       </Mobile>
+      {/* 데스크톱 환경 */}
       <Desktop>
         모바일만 된답니다. 돌아가세요
       </Desktop>

@@ -1,3 +1,7 @@
+// 4. 29.
+// 민석 :: Button 컴포넌트 설정
+// Props - {Text} 를 통하여 Btn Value TEXT 설정
+
 import React from 'react';
 import {TEXT_WHITE, MAIN_COLOR} from '../Colors/Color';
 import styled from 'styled-components';

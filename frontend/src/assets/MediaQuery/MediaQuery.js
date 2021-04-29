@@ -1,4 +1,6 @@
 
+// 4. 29. 
+// 민석 :: 미디어 쿼리 설정 [데스크톱 / 모바일 환경]
 import { useMediaQuery } from 'react-responsive';
 
 const Desktop = ({ children }) => {
@@ -12,4 +14,5 @@ const Mobile = ({ children }) => {
     return isMobile ? children : null
 }
 
+// export로 components 단위로 사용
 export {Desktop, Mobile};
