@@ -14,7 +14,7 @@ const Btn = styled.button`
     background-color: ${props=>props.color || MAIN_COLOR};
     color: ${TEXT_WHITE};
 
-    &:hover{
+    :active{
         transition: 0.3s;
         background-color: ${
             (props) => props.color===SUB_COLOR 
@@ -23,9 +23,9 @@ const Btn = styled.button`
     }
 `;
 
-const Button = ({Width, Color, Text}) => {
+const Button = ({Width, Color, Text, OnClick}) => {
     return (
-        <Btn width={Width} color={Color}>{Text}</Btn>
+        <Btn onClick={OnClick} width={Width} color={Color}>{Text}</Btn>
     );
 }
 
