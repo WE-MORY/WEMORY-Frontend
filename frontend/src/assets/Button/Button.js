@@ -3,7 +3,7 @@
 // Props - {Text} 를 통하여 Btn Value TEXT 설정
 
 import React from 'react';
-import {TEXT_WHITE, MAIN_COLOR} from '../Colors/Color';
+import {TEXT_WHITE, MAIN_COLOR, SUB_COLOR} from '../Colors/Color';
 import styled from 'styled-components';
 
 const Btn = styled.button`
@@ -11,13 +11,21 @@ const Btn = styled.button`
     width: 240px;
     height: 40px;
     border-radius: 30px;
-    background-color: ${props=>props.back_color || MAIN_COLOR};
+    background-color: ${props=>props.color || MAIN_COLOR};
     color: ${TEXT_WHITE};
+
+    &:hover{
+        transition: 0.3s;
+        background-color: ${
+            (props) => props.color===SUB_COLOR 
+            ? MAIN_COLOR : SUB_COLOR
+        };
+    }
 `;
 
-const Button = ({Text}) => {
+const Button = ({Color, Text}) => {
     return (
-        <Btn>{Text}</Btn>
+        <Btn color={Color}>{Text}</Btn>
     );
 }
 
