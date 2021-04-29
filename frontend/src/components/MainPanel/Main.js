@@ -24,6 +24,24 @@ const CircleDiv = styled.div`
     align-items: center;
     display: flex;
     height: 80vh;
+
+    svg{
+        stroke-dasharray: 100; /*이 값은 path의 길이와 동일합니다*/
+        stroke-dashoffset: 100;
+        animation: dash 1.3s linear;
+        animation-fill-mode: forwards;
+        
+        @keyframes dash {
+        0% {
+            stroke-dashoffset: 100;
+        }
+        100% {
+             stroke-dashoffset: 0;
+        }
+}
+    }
+
+    
 `
 
 const ListDiv = styled.div`
@@ -31,6 +49,8 @@ const ListDiv = styled.div`
     height: 10vh;
     width: 90vw;    
 ` 
+
+
 const Main = () => {
     return (
         <>
