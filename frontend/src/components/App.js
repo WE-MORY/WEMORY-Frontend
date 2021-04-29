@@ -1,10 +1,22 @@
 // 4. 29.
-// 민석 :: Global Reset.css 적용 및 MediaQuery 적용
+// 민석 
+// :: Global Reset.css 적용 및 MediaQuery 적용
+// :: Browser Router/Route 설정
 import React from 'react';
+import {
+  Route,
+  Redirect,
+  BrowserRouter
+} from "react-router-dom";
+
 import '../assets/CSS/app.css';
 import {createGlobalStyle} from 'styled-components';
 import Button from '../assets/Button/Button';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
+import {SUB_COLOR} from '../assets/Colors/Color';
+import Main from './MainPanel/Main';
+import AccountPage from './AccountPanel/Account/AccountPage';
+import LoginPage from './AccountPanel/Login/LoginPage';
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -57,17 +69,21 @@ border-spacing: 0;
 const App = () => {
 
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       {/* 모바일 환경 */}
       <Mobile> 
-        <Button Text="로그인하기"/>
+        {/* Router 추가 */}
+        <Button Color={SUB_COLOR} Text="로그인"/>
+        {/* <Route exact path='/' components={Main} />
+        <Route path='/login' components={LoginPage} />
+        <Route path='/account' components={AccountPage} /> */}
       </Mobile>
       {/* 데스크톱 환경 */}
       <Desktop>
         모바일만 된답니다. 돌아가세요
       </Desktop>
-    </>
+    </BrowserRouter>
   );
 }
 
