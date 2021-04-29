@@ -1,8 +1,8 @@
 import React from 'react';
 import '../assets/CSS/app.css';
 import {createGlobalStyle} from 'styled-components';
-
 import Button from '../assets/Button/Button';
+import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -55,10 +55,15 @@ border-spacing: 0;
 const App = () => {
 
   return (
-    <div>
+    <>
       <GlobalStyle />
-      <Button Text="gdf" />
-    </div>
+      <Mobile>
+        <Button Text="로그인하기"/>
+      </Mobile>
+      <Desktop>
+        모바일만 된답니다. 돌아가세요
+      </Desktop>
+    </>
   );
 }
 
