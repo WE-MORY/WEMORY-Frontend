@@ -13,7 +13,7 @@ import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
-import AccountPage from './AccountPanel/Account/AccountPage';
+import Signup from './AccountPanel/Account/Signup';
 import LoginPage from './AccountPanel/Login/LoginPage';
 import Main from './MainPanel/Main';
 
@@ -90,7 +90,7 @@ const App = () => {
           <MobileContainer>
             <Route exact path='/' component={Main}/>
             <Route path='/login' component={LoginPage} />
-            <Route path='/account' component={AccountPage} />
+            <Route path='/signup' component={Signup} />
           </MobileContainer>
         </BrowserRouter>
       </Mobile>

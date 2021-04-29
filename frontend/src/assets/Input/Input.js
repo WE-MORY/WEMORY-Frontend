@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const InputStyle = styled.input`
     font-family: 'Spoca-Light';
-    font-size: 1.2rem;
+    font-size: 0.7rem;
 
     /* 커서 삭제 */
     color: transparent;
@@ -15,16 +15,15 @@ const InputStyle = styled.input`
     border: 1px solid #77A6FF;
     display: inline-block;
     padding-left: 5%;
-    
     &:focus{
         border: 2px solid #77A6FF;
         outline-style: none;
     }
     `
 
-const Input = ({Width, Hint}) => {
+const Input = ({Width, Hint, Type, OnChange}) => {
     return (
-            <InputStyle width={Width} placeholder={Hint}/>  
+            <InputStyle type={Type} onChange={OnChange} width={Width} placeholder={Hint}/>  
     );
 }
 
