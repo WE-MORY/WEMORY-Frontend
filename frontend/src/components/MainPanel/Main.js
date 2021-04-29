@@ -5,13 +5,14 @@ import styled from 'styled-components';
 import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import { MAIN_COLOR } from '../../assets/Colors/Color';
 import Button from '../../assets/Button/Button.js';
+import Pic1 from '../../assets/Images/cat.png';
+import Pic2 from '../../assets/Images/cat2.jpg';
 
 const MainDiv = styled.div`
     display: flex;
-    height: 60%;
+    height: auto;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     margin-top: 2vh;
 `
 
@@ -22,16 +23,17 @@ const Text = styled.div`
     position: absolute;
     text-align: center;
     height : 18vh;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     
 `
 
 const CircleDiv = styled.div`
+    /* position: absolute; */
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 70vh;
 
     svg{
         stroke-dasharray: 100; /*이 값은 path의 길이와 동일합니다*/
@@ -62,13 +64,31 @@ const BtnStyle = styled.div`
 `
 
 const ListDiv = styled.div`
-    background-color: tomato;
-    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-content: space-around; */
+    justify-content: center;
     width: 90vw;    
 ` 
-
+const ContentDiv = styled.div`
+    background: url(${Pic1}) center center no-repeat;
+    background-size: contain;
+    background-color: coral;
+    margin: 0.2vh 0.2vw;
+    width: 120px;
+    height: 120px;
+`
+const TextBox =  styled.div`
+    text-align: left;
+    font-family: 'Spoca-Regular';
+    font-size: 1.5rem;
+    margin: 2vh 0 ;
+    width: 85vw;
+`
 
 const Main = () => {
+    // const repeat = ['${pic1}', '${pic2}'];
+    // const repeatLi = repeat.map(div => {ContentDiv});
     return (
         <>
             <Header />
@@ -86,8 +106,13 @@ const Main = () => {
                     </Text>
                     
                 </CircleDiv>
+                <TextBox>
+                    <span>
+                        어쩌고 일기의 추억들
+                    </span> 
+                </TextBox>
                 <ListDiv>
-                    리스트 나올 div 입니다.
+                   <ContentDiv />
                 </ListDiv>
             </MainDiv>
         </>
