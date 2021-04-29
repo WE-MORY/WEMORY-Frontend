@@ -5,22 +5,29 @@ import {ReactComponent as Calendar} from '../../assets/Images/calendar.svg';
 import { Drawer } from '@material-ui/core'
 
 const MenuStyle = styled.div`
+    position: absolute;
+    top: 3vh;
+    left: 5vw;
     &:hover{
         cursor: pointer;
     }
 `
 
 const CalendarStyle = styled.div `
+    position: absolute;
+    top: 3vh;
+    right: 5vw;
+
     &:hover{
         cursor: pointer;
     }
 `
 
 const HeaderPanel = styled.div`
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     height: 8vh;
     width: 100%;
     background-color: white;
@@ -41,8 +48,6 @@ const Header = () => {
                 <CalendarStyle>
                     <Calendar width="25" height="25"/>
                 </CalendarStyle>
-
-                
             </HeaderPanel>
         </>
     );
