@@ -16,9 +16,11 @@ const LoginContainer = styled.div`
     margin: 0 auto;
     height: 100%;
     width: 70%;
+
     input{
         min-width: 200px;
     }
+
     input + input{
         margin-top: 10px;
     }
@@ -30,6 +32,7 @@ const LoginContainer = styled.div`
         min-width: 220px;
         margin-top: 20px;
     }
+    
     button + button{
         margin-top: 10px;
     }
@@ -61,10 +64,6 @@ const LogoContainer = styled.div`
     }
 `;
 
-
-
-
-
 const LoginPage = () => {
 
     const [ID, SetID] = useState("");
@@ -84,6 +83,11 @@ const LoginPage = () => {
         SetisLoading(true); // 로그인 중
         try {
             const response = await TokenAPI(ID, PW);
+            // localStorage.setItem(
+            //     "userToken", ({
+
+            //     })
+            // )
             SetisLoading(false);
         } catch (err) {
             alert(err);
