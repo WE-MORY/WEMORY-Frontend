@@ -1,13 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
 import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg'
+
+const HeaderDiv = styled.div`
+    height: 8vh;
+    width: 100%;
+`
+const BtnStyle = styled.div`
+    position: absolute;
+    top: 3vh;
+    left: 5vw;
+`
 
 
 export default function BackHeader() {
     return (
         <>
-            <HeaderPannel>
-                <BackBtn width="10" height="10"/>
-            </HeaderPannel>
+            <HeaderDiv>
+                <BtnStyle>
+                    <BackBtn width="25" height="25"/>
+                </BtnStyle>
+            </HeaderDiv>
         </>
     )
 }
