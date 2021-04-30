@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
+
 import styled from 'styled-components';
 import Input from '../../../assets/Input/Input';
 import Button from '../../../assets/Button/Button';
@@ -26,7 +28,7 @@ const LoginContainer = styled.div`
     }
 
     button{
-        font-family: 'Spoca-Regular';
+        font-family: 'Spoqa-Regular';
         font-size: 1.5rem;
         width: 70%;
         min-width: 220px;
@@ -66,6 +68,8 @@ const LogoContainer = styled.div`
 
 const LoginPage = () => {
 
+    const history = useHistory();
+    
     const [ID, SetID] = useState("");
     const [PW, SetPW] = useState("");
     const [isLoading, SetisLoading] = useState(false);
@@ -85,10 +89,11 @@ const LoginPage = () => {
             const response = await TokenAPI(ID, PW);
             // localStorage.setItem(
             //     "userToken", ({
-
+                
             //     })
-            // )
-            SetisLoading(false);
+            // );
+            history.push('/');
+            
         } catch (err) {
             alert(err);
             SetisLoading(false);
@@ -108,7 +113,7 @@ const LoginPage = () => {
                 <Input Type="text" OnChange={handleIDchange} value={ID} Hint="아이디를 입력해주세요." Width="70%" />
                 <Input Type="password" OnChange={handlePWchange} value={PW} Hint="비밀번호를 입력해주세요." Width="70%"/>
                 <Button id="login" OnClick={handleLogin} Text="로그인" />
-                <Button id="signup" Text="회원가입" Color={SUB_COLOR}/>
+                <Button id="signup" OnClick={()=>history.push('/signup')} Text="회원가입" Color={SUB_COLOR}/>
                 <LogoTitle id="SignUpText">아직 계정이 없으신가요?</LogoTitle>
             </LoginContainer>
         }
