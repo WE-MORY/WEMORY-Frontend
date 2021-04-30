@@ -99,9 +99,11 @@ const App = () => {
             {/* 계좌 링크 입금계좌설정/입금계좌리스트 */}
             <Route exact path='/accountwithdraw' component={AccountWithDraw} /> 
             <Route exact path='/accountlist' component={AccountList} />
+            {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
             <Route exact path = '/diarylist' component={List} />
             <Route exact path = '/diarydetail' component={Detail} />
             <Route exact path = '/diarycreate' component={Create} />
+            {/* 유저 로그인/회원가입 페이지 */}
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={Signup} />
           </MobileContainer>
