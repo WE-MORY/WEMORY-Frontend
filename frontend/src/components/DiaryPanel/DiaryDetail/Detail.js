@@ -5,7 +5,7 @@ import BackHeader from '../../HeaderPanel/BackHeader'
 import {useState} from 'react'
 import Button from '../../../assets/Button/Button'
 import TransitionsModal from './Modal'
-
+// import {Pic} from '../../../assets/Images/textImg/cat1.jpg
 
 const MainDiv = styled.div`
     display: flex; 
@@ -21,104 +21,53 @@ const MainDiv = styled.div`
 const DateDiv = styled.div`
     font-size: 1.5rem;
     font-family: 'Spoqa-Regular';
+    /* margin: 5vh 0; */
     /* text-align: center; */
 
-    
 `
 
-// input 숨기기 
-const PicInput = styled.input`
-    
-    &[type="file"] {
-        position: absolute; 
-        width: 1px; 
-        height: 1px; 
-        padding: 0; 
-        margin: -1px; 
-        overflow: hidden; 
-        clip:rect(0,0,0,0); 
-        border: 0;
-    }
+const ImgDiv = styled.img`
+    background-color: brown;
+    width: 100vw;
+    height: 50vh;
+    margin: 10vh 0;
 `
-
-const PicLabel = styled.label`
-    display: flex;
-    width: 70vw;
-    height: 55vh;
-    border: 1px solid black;
-    border-radius: 50px;
-    align-items: center;
-    justify-content: center;
-    margin: 10vh 0 ;
-    position: relative;
-    font-size: 1.3rem;
+const TextDiv = styled.div`
+    text-align: left;
 
 `
-const TextInput = styled.input`
-    font-family: "Cafe24";
-    font-size: 1.4rem;
+
+const Title = styled.span`
     display: block;
-    border-style: none;
-    border-bottom: 1px solid black;
-    width: 80vw;
-    height: 6vh;
-
-    &:focus {
-        outline: none;
-    }
+    font-size: 1.5rem;
+    font-family: "Cafe24";
 
 `
 
-const ImgStyle = styled.img`
-    position: absolute;
-    height: 56vh;
-    width: 70vw;
-    border-radius: 50px;
+const Description = styled.span`
+    display: block;
+    font-family: "Cafe24";
+    font-size: 1.2rem;
+
+
 `
 
 export default function Create() {
-    const [imgBase, setimgBase] = useState("");
-    const [imgFile, setimgFile] = useState(null);
-
-    const handleChangeFile = (event) => {
-        let reader = new FileReader();
-
-        // 파일이 다 올라왔으면 실행 
-        reader.onload = () => {
-            // reader 에서 가져온 이미지 base 에 저장 
-            const base = reader.result;
-            // base 가 true 인 경우 
-            if (base) {
-                // state 업데이트
-                setimgBase(base.toString()); 
-                
-            } 
-        }
-        // 업로드 된 파일이 한 개라서 인덱스 0 
-        if (event.target.files[0]){
-            reader.readAsDataURL(event.target.files[0])
-            setimgFile(event.target.files[0]);
-        }
-    }
     
-    
-
     return (
         <>
         <BackHeader />
 
         <MainDiv>
-            <PicLabel for="imgFile" >이 곳을 터치해 사진을 첨부하세요. </PicLabel>
-            <ImgStyle src={imgBase} alt="사진이 안떠요" />
-            <PicInput name = "imgFile" type="file" id="imgFile" onChange={handleChangeFile}/>
-            <div>
-                <TextInput />
-                <TextInput />
-                <TextInput />
-            </div>
-            <TransitionsModal />
-            {/* <Button Text={"다음 단계로 이동하기"} Width={"80vw"}></Button> */}
-        
+            <DateDiv>2021 . 04 . 30 (금)</DateDiv>
+            <ImgDiv>
+                {/* <img src="../../../assets/Images/textImg/cat1.png" alt="img 안 나와요"></img> */}
+            </ImgDiv>
+            <TextDiv>
+                <Title>여기는 타이틀 나오는 부분입니다. </Title>
+
+                <Description>여기는 설명이 나오는 부분입니다.</Description>
+            </TextDiv>
         </MainDiv>
         </>
     )
