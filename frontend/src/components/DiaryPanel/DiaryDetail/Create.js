@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
 import {useState} from 'react'
 import Button from '../../../assets/Button/Button'
+import TransitionsModal from './Modal'
 
 
 const MainDiv = styled.div`
@@ -138,7 +139,9 @@ export default function Create() {
                 <TextInput />
                 <TextInput />
             </div>
-            <Button Text={"다음 단계로 이동하기"} Width={"80vw"}></Button>
+            <TransitionsModal />
+            {/* <Button Text={"다음 단계로 이동하기"} Width={"80vw"}></Button> */}
+        
         </MainDiv>
         </>
     )
