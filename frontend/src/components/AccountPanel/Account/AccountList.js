@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Header from '../../HeaderPanel/Header';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
 
-
 const TitleContainer = styled.div`
     display: flex;
     align-items: center;
