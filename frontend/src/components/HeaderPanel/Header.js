@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import {ReactComponent as Calendar} from '../../assets/Images/calendar.svg';
@@ -38,13 +38,20 @@ const HeaderPanel = styled.div`
     `
 
 const Header = () => {
-    
+        const SideMenu = useRef();
+
+        const onMenu = () => {
+            console.log("실행된다.")
+
+            SideMenu.current.toggleDrawer();
+            console.log("실행된다.")
+        }
     return (
         <>  
             <HeaderPanel>
                 <MenuStyle>
-                    <Yumin />
-                    <Burgermenu width="25" height="25"/>
+                    <Yumin ref={SideMenu}/>
+                    <Burgermenu width="25" height="25" onclick={onMenu}/>
                 </MenuStyle>
 
                 <CalendarStyle>
