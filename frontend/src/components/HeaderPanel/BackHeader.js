@@ -18,7 +18,7 @@ export default function BackHeader() {
         <>
             <HeaderDiv>
                 <BtnStyle>
-                    <BackBtn width="25" height="25"/>
+                    <BackBtn width="20" height="20"/>
                 </BtnStyle>
             </HeaderDiv>
         </>
