@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import {ReactComponent as Calendar} from '../../assets/Images/calendar.svg';
-import { Drawer } from '@material-ui/core'
+import Yumin from '../MainPanel/Drawer';
 
 const MenuStyle = styled.div`
     position: absolute;
@@ -43,6 +43,7 @@ const Header = () => {
         <>  
             <HeaderPanel>
                 <MenuStyle>
+                    <Yumin />
                     <Burgermenu width="25" height="25"/>
                 </MenuStyle>
 
