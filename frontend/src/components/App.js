@@ -20,7 +20,7 @@ import List from './DiaryPanel/DiaryList/List';
 import Create from './DiaryPanel/DiaryDetail/Create';
 import AccountList from './AccountPanel/Account/AccountList';
 import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
-
+import Detail from '../components/DiaryPanel/DiaryDetail/Detail';
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -99,10 +99,9 @@ const App = () => {
             {/* 계좌 링크 입금계좌설정/입금계좌리스트 */}
             <Route exact path='/accountwithdraw' component={AccountWithDraw} /> 
             <Route exact path='/accountlist' component={AccountList} />
-            {/* 일기장 리스트/일기장 생성 */}
-            <Route exact path='/diarylist' component={List} />
-            <Route exact path='/diarycreate' component={Create} />
-            {/* 유저 로그인/회원가입 */}
+            <Route exact path = '/diarylist' component={List} />
+            <Route exact path = '/diarydetail' component={Detail} />
+            <Route exact path = '/diarycreate' component={Create} />
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={Signup} />
           </MobileContainer>
