@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import styled from 'styled-components';
 import Input from '../../../assets/Input/Input';
 import Button from '../../../assets/Button/Button';
-import { SUB_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
+// import { SUB_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
 import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg';
 
 
@@ -24,7 +24,7 @@ const SignupContainer = styled.div`
     }
 
     button{
-        font-family: 'Spoca-Regular';
+        font-family: 'Spoqa-Regular';
         font-size: 1.5rem;
         width: 70%;
         min-width: 220px;
@@ -44,7 +44,7 @@ const LogoTitle = styled.p`
     font-family:'Cafe24';
     font-size: 0.8rem;
     &#SignUpText{
-        font-family:'Spoca-Light';
+        font-family:'Spoqa-Light';
         font-size: 0.8rem;
         margin-top: 5%;
     }
@@ -159,7 +159,7 @@ const Signup = () => {
                     <Button OnClick={handleAuthCheck} Text="인증번호 확인" />  
                 </AuthNumberContainer> : null
             }
-            <Button OnClick={handlesignup} Text="회원가입" />            
+            <Button OnClick={handlesignup} Text="가입하기" />            
         </SignupContainer>
     );
 }

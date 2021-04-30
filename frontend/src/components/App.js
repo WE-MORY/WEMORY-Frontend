@@ -13,11 +13,13 @@ import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
-import Signup from './AccountPanel/Account/Signup';
+import Signup from './AccountPanel/Login/Signup';
 import LoginPage from './AccountPanel/Login/LoginPage';
 import Main from './MainPanel/Main';
 import List from './DiaryPanel/DiaryList/List';
 import Create from './DiaryPanel/DiaryDetail/Create';
+import AccountList from './AccountPanel/Account/AccountList';
+import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
 
 
 // RESET.CSS
@@ -46,6 +48,7 @@ time, mark, audio, video {
 html{
   /* rem 기준 */
   font-size: 12px;
+  font-family: 'Spoqa-Light';
   color: ${TEXT_BLACK};
 }
 
@@ -92,10 +95,12 @@ const App = () => {
         <BrowserRouter>
           <MobileContainer>
             <Route exact path='/' component={Main}/>
-            <Route path = '/DiaryList' component={List} />
-            <Route path = '/DiaryCreate' component={Create} />
-            <Route path='/login' component={LoginPage} />
-            <Route path='/signup' component={Signup} />
+            <Route exact path='/accountadd' component={AccountWithDraw} />
+            <Route exact path='/accountlist' component={AccountList} />
+            <Route exact path = '/diarylist' component={List} />
+            <Route exact path = '/diarycreate' component={Create} />
+            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/signup' component={Signup} />
           </MobileContainer>
         </BrowserRouter>
       </Mobile>
