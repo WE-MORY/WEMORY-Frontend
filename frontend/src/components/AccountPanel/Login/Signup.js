@@ -4,6 +4,10 @@ import Input from '../../../assets/Input/Input';
 import Button from '../../../assets/Button/Button';
 // import { SUB_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
 import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg';
+import { PhoneAuthAPI, SignupAPI } from '../../../api/user/user';
+import { useHistory } from 'react-router';
+
+import Loader from '../../LoaderPanel/Loader';
 
 
 const SignupContainer = styled.div`
@@ -90,6 +94,7 @@ const AuthNumberContainer = styled.div`
 
 const Signup = () => {
 
+    const histroy = useHistory();
     const inputRef = useRef(null);
 
     const [Email, SetEmail] = useState("");
@@ -100,6 +105,7 @@ const Signup = () => {
     const [AuthNumber, SetAuthNumber] = useState("");
 
     const [IsClick, SetIsClick] = useState(false);
+    const [IsLoading, SetIsLoading] = useState(false);
 
     const handleEmailchange = (e) => {
         SetEmail(e.target.value);
@@ -116,13 +122,16 @@ const Signup = () => {
     const handlePhonechange = (e) => {
         SetPhone(e.target.value);
     }
-    const handleAuthchange = (e) => {
+    const handleAuthchange =  (e) => {
         SetAuthNumber(e.target.value);
     }
 
-    const handleAuthPhone = (e) =>{
+    const handleAuthPhone = async (e) =>{
         e.preventDefault();
+        const response = await PhoneAuthAPI();
+        const AUTH_TOKEN = response.data.dataBody.CRTF_UNQ_NO;
         SetIsClick(true);
+        inputRef.current.value = AUTH_TOKEN;
     }
 
     const handleAuthCheck = (e) =>{
@@ -130,15 +139,23 @@ const Signup = () => {
         inputRef.current.disabled = true;
     }
 
-    const handlesignup = async () => {
-        try{
-         
-        }catch(err){
 
+    // 회원가입 API
+    const handlesignup = async () => {
+        SetIsLoading(true);
+        try{
+            const response = await SignupAPI(Email, Name, PW, PW2, Phone);
+            SetIsLoading(false);
+            histroy.push('/login');
+        }catch(err){
+            const msg = err.response.data.message;
+            alert(msg);
         }
     }
 
     return (
+        <>
+        { IsLoading ? <Loader /> :
         <SignupContainer>
            <LogoContainer>
                 <MainLogo width="100%" height="100%"/>
@@ -155,12 +172,14 @@ const Signup = () => {
             {   
                 IsClick ? 
                 <AuthNumberContainer>
-                    <Input enable Type="text" Ref={inputRef}  OnChange={handleAuthchange} value={AuthNumber} Hint="인증번호를 입력해주세요." Width="70%"/>
+                    <Input enable Type="text" Ref={inputRef} OnChange={handleAuthchange} value={AuthNumber} Hint="인증번호를 입력해주세요." Width="70%"/>
                     <Button OnClick={handleAuthCheck} Text="인증번호 확인" />  
                 </AuthNumberContainer> : null
             }
             <Button OnClick={handlesignup} Text="가입하기" />            
         </SignupContainer>
+        }
+        </>
     );
 }
 

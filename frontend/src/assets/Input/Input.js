@@ -23,7 +23,7 @@ const InputStyle = styled.input`
 
 const Input = ({Ref, Width, Hint, Type, OnChange}) => {
     return (
-            <InputStyle ref={Ref} type={Type} onChange={OnChange} width={Width} placeholder={Hint}/>  
+            <InputStyle ref={Ref} type={Type} onChange={OnChange} width={Width} placeholder={Hint} required/>  
     );
 }
 
