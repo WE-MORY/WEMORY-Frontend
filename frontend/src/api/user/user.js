@@ -7,10 +7,10 @@ export const PhoneAuthAPI = ((PhoneNumber) => API.post("", {
 }))
 
 // 회원가입 API , 이메일/이름/비번/비번확인/휴대폰번호
-export const SignupAPI = ((email, name, pw, pw2, phone) => API.post("/api-jwt-auth/login/", {
+export const SignupAPI = ((email, name, pw, pw2, phone) => API.post("/users/signup/", {
     email: email,
-    name: name,
-    pw: pw,
-    pw2: pw2,
+    username: name,
+    password: pw,
+    password_confirm: pw2,
     phone: phone
 }))
