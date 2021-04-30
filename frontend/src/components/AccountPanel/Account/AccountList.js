@@ -39,13 +39,57 @@ const ListItem = styled.li`
     margin-bottom: 30px;
 `;
 
-// const TestDataURL = [
-// ];
+const ItemDescription = styled.div`
+    font-family: 'Spoqa-Regular';
+    text-align: center;
+    margin-top: 5px;
+`;
+
+
+const TestDataURL = [
+    {
+        ImgURL: '../../../assets/Images/textImg/cat1.png',
+        description: "테스트1"
+    },
+    {
+        ImgURL: '../../../assets/Images/textImg/cat2.png',
+        description: "테스트2"
+    },
+    {
+        ImgURL: '../../../assets/Images/textImg/cat3.png',
+        description: "테스트3"
+    },
+    {
+        ImgURL: '../../../assets/Images/textImg/cat4.png',
+        description: "테스트4"
+    },
+    {
+        ImgURL: '../../../assets/Images/textImg/cat5.png',
+        description: "테스트5"
+    }
+    ,{
+        ImgURL: '../../../assets/Images/textImg/cat6.png',
+        description: "테스트6"
+    }
+    ,{
+        ImgURL: '../../../assets/Images/textImg/cat7.png',
+        description: "테스트7"
+    }
+    ,{
+        ImgURL: '../../../assets/Images/textImg/cat8.png',
+        description: "테스트8"
+    }
+    ,{
+        ImgURL: '../../../assets/Images/textImg/cat9.png',
+        description: "테스트9"
+    }
+    ,{
+        ImgURL: '../../../assets/Images/textImg/cat10.png',
+        description: "테스트10"
+    }
+];
 
 const AccountList = () => {
-
-
-
     return (
         <>
             <Header />
@@ -60,13 +104,12 @@ const AccountList = () => {
                         <AccountCreateCard />
                     </ListItem>
                     <ListItem>
-                        <AccountImageCard />
+                        <AccountImageCard backgroundImg={TestDataURL[0].ImgURL}/>
+                        <ItemDescription>{TestDataURL[0].description}</ItemDescription>
                     </ListItem>
                     <ListItem>
-                        <AccountImageCard />
-                    </ListItem>
-                    <ListItem>
-                        <AccountImageCard />
+                        <AccountImageCard backgroundImg={TestDataURL[1].ImgURL}/>
+                        <ItemDescription>{TestDataURL[1].description}</ItemDescription>
                     </ListItem>
                 </CardList>
             </CardContainer>

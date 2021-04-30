@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MAIN_COLOR} from '../../../assets/Colors/Color'
+import {useHistory} from 'react-router-dom';
+
+
+import {MAIN_COLOR, TEXT_WHITE} from '../../../assets/Colors/Color'
 
 const CardContainer = styled.div`
     width: 130px;
@@ -11,22 +14,28 @@ const CardContainer = styled.div`
     text-shadow: 1px 2px 3px #000;
     &#create{
         border: 1px solid ${MAIN_COLOR};
+        :active{
+            transition: 0.15s;
+            background-color: ${MAIN_COLOR};
+            color: ${TEXT_WHITE};
+        }
     }
     &.image_card{
+        /* background: url(${props=>props.background_src}) no-repeat; */
         border: 1px solid red;
-        /* background: url(${props=>props.background_src}) no-repeat; 
-        background-size: contain; */
     }
-
 `;
 
 
-const AccountImageCard = (background) => {
-    return <CardContainer background_src={background} className='image_card' />
+const AccountImageCard = (props) => {
+    return <CardContainer background_src={props.backgroundImg} className='image_card' ></CardContainer>
 }
 
 const AccountCreateCard = () => {
-    return <CardContainer id='create' /> 
+
+    const history = useHistory();
+
+    return <CardContainer onClick={()=>history.push('/')} id='create' /> 
 }
 
 
