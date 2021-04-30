@@ -20,7 +20,7 @@ import List from './DiaryPanel/DiaryList/List';
 import Create from './DiaryPanel/DiaryDetail/Create';
 import AccountList from './AccountPanel/Account/AccountList';
 import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
-
+import Detail from '../components/DiaryPanel/DiaryDetail/Detail';
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -98,6 +98,7 @@ const App = () => {
             <Route exact path='/accountadd' component={AccountWithDraw} />
             <Route exact path='/accountlist' component={AccountList} />
             <Route exact path = '/diarylist' component={List} />
+            <Route exact path = '/diarydetail' component={Detail} />
             <Route exact path = '/diarycreate' component={Create} />
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={Signup} />
