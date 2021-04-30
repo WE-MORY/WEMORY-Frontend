@@ -94,8 +94,10 @@ const App = () => {
         {/* Router 추가 */}
         <BrowserRouter>
           <MobileContainer>
+            {/* 메인 페이지 */}
             <Route exact path='/' component={Main}/>
-            <Route exact path='/accountadd' component={AccountWithDraw} />
+            {/* 계좌 링크 입금계좌설정/입금계좌리스트 */}
+            <Route exact path='/accountwithdraw' component={AccountWithDraw} /> 
             <Route exact path='/accountlist' component={AccountList} />
             <Route exact path = '/diarylist' component={List} />
             <Route exact path = '/diarydetail' component={Detail} />
