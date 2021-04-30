@@ -4,14 +4,13 @@ import {ReactComponent as LightLogo} from '../../assets/Images/MainLogoLight2.sv
 import styled from 'styled-components';
 import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import { MAIN_COLOR } from '../../assets/Colors/Color';
-import Button from '../../assets/Button/Button.js';
 import Pic1 from '../../assets/Images/cat.png';
-import Pic2 from '../../assets/Images/cat2.jpg';
 
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SimpleSlider from './Test';
+import SimpleSlider from './Slider';
+import Yumin from './Drawer';
 
 const MainDiv = styled.div`
     display: flex;
