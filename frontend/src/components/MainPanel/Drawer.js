@@ -7,16 +7,29 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+import Button from '../../assets/Button/Button';
+import {TEXT_WHITE, MAIN_COLOR, SUB_COLOR, TEXT_BLACK} from '../../assets/Colors/Color'
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited{
+    color: #4B5364;
+  }
+`
 
 
-const Theme = styled.div`
-  font-family: "Spoqa-Light";
+const BtnDiv = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
 `
 
 const ProfileDiv = styled.div`
   display: flex;
   align-items: center;
-  
+  margin: 4vh 4vw;
 `
 const ProfileTextDiv = styled.div`
   margin: 3vw;
@@ -40,7 +53,6 @@ const Name = styled.span`
 const Setting = styled.button`
   margin-top: 1vh;
   /* display: block; */
-
 `
 
 const useStyles = makeStyles({
@@ -52,11 +64,6 @@ const useStyles = makeStyles({
   fullList: {
     // width: 'auto',
   },
-
-  // typography: {
-  //   color: red,
-  //   fontFamily: 'Spoqa-Light'
-  // }
 }
 );
 
@@ -84,27 +91,45 @@ export default function Drawer({SideMenu}) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
 
-      <List>
-        <ListItem>
         <ProfileDiv>
-          <ImgDiv />
-          <ProfileTextDiv>
-            <Name>하유민</Name>
-            <Setting>출금계좌변경</Setting>
-          </ProfileTextDiv>
+            <ImgDiv />
+              <ProfileTextDiv>
+                <Name>하유민</Name>
+              </ProfileTextDiv>
         </ProfileDiv>
+      <List>
+        
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/diarylist">
+              입금 일기장
+            </StyledLink>
+          </ListItemText>
         </ListItem>
-        {['일기리스트', '추억만들기', '목표설정', '예금현황'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/">
+              목표 설정
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/">
+              목표 설정
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
+        
       </List>
+      <BtnDiv>
+        <Button Text={"로그아웃"} Width={"40vw"} Color={"#4B5364"}/>
+      </BtnDiv>
+
     </div>
   );
 
   return (
-    <Theme>
       <div>
         {['left'].map((anchor) => (
           <React.Fragment key={anchor}>
@@ -121,6 +146,5 @@ export default function Drawer({SideMenu}) {
           </React.Fragment>
         ))}
       </div>
-    </Theme>
   );
 }
