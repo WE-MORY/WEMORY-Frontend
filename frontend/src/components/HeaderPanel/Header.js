@@ -38,20 +38,13 @@ const HeaderPanel = styled.div`
     `
 
 const Header = () => {
-        const SideMenu = useRef();
 
-        const onMenu = () => {
-            console.log("실행된다.")
-
-            SideMenu.current.toggleDrawer();
-            console.log("실행된다.")
-        }
     return (
         <>  
             <HeaderPanel>
                 <MenuStyle>
-                    <Yumin ref={SideMenu}/>
-                    <Burgermenu width="25" height="25" onclick={onMenu}/>
+                    <Yumin />
+                    {/* <Burgermenu width="25" height="25" /> */}
                 </MenuStyle>
 
                 <CalendarStyle>

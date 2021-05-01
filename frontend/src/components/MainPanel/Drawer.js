@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
+
 
 
 const useStyles = makeStyles({
@@ -17,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Yumin() {
+export default function Yumin({SideMenu}) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false
@@ -54,7 +56,7 @@ export default function Yumin() {
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Burgermenu width="25" height="25 "onClick={toggleDrawer(anchor, true)}>{anchor}</Burgermenu>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
