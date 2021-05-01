@@ -13,14 +13,20 @@ import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
+
 import Signup from './AccountPanel/Login/Signup';
 import LoginPage from './AccountPanel/Login/LoginPage';
+
 import Main from './MainPanel/Main';
+
 import List from './DiaryPanel/DiaryList/List';
 import Create from './DiaryPanel/DiaryDetail/Create';
+import Detail from '../components/DiaryPanel/DiaryDetail/Detail';
+
 import AccountList from './AccountPanel/Account/AccountList';
 import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
-import Detail from '../components/DiaryPanel/DiaryDetail/Detail';
+import AccountDeposit from './AccountPanel/Account/AccountDeposit';
+
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -96,8 +102,9 @@ const App = () => {
           <MobileContainer>
             {/* 메인 페이지 */}
             <Route exact path='/' component={Main}/>
-            {/* 계좌 링크 입금계좌설정/입금계좌리스트 */}
-            <Route exact path='/accountwithdraw' component={AccountWithDraw} /> 
+            {/* 계좌 링크 출금계좌생성/입금계좌생성/입금계좌리스트 */}
+            <Route exact path='/accountwithdraw' component={AccountWithDraw} />
+            <Route exact path='/accountdeposit' component={AccountDeposit} /> 
             <Route exact path='/accountlist' component={AccountList} />
             {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
             <Route exact path = '/diarylist' component={List} />
