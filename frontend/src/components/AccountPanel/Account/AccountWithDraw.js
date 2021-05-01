@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../../assets/Button/Button';
 import { MAIN_COLOR } from '../../../assets/Colors/Color';
@@ -65,6 +66,16 @@ const LogoContainer = styled.div`
 `;
 
 const AccountWithDraw = () => {
+
+    const history = useHistory();
+
+    const [AccountNumber, SetAccountNumber] = useState('');
+
+    const handleAddAccount = () => {
+        // 출금계좌 생성 API 적용 후 => 메인으로 이동
+        history.push('/');
+    }
+
     return (
         <WithDrawContainer>
             <LogoContainer>
@@ -73,8 +84,10 @@ const AccountWithDraw = () => {
             </LogoContainer>
             <LogoTitle id='description'>처음이시군요? <br />출금 계좌를 등록해주세요.</LogoTitle>
             <Input Type="text" Width="70%" Value="우리은행"/>
-            <Input Type="text" Width="70%" Hint="계좌 번호를 입력하세요."/>
-            <Button OnClick='' Text="계좌 등록하기"/>
+            <Input Type="text" OnChange={(e)=>{
+                SetAccountNumber(e.target.value)
+            }} Value={AccountNumber} Width="70%" Hint="계좌 번호를 입력하세요."/>
+            <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
         </WithDrawContainer>
     );
 }

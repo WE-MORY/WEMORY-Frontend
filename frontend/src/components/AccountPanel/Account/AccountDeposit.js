@@ -1,4 +1,5 @@
 import React, {useRef, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../../assets/Button/Button';
 import { MAIN_COLOR, TEXT_WHITE } from '../../../assets/Colors/Color';
@@ -103,6 +104,8 @@ const SelectImgBox = styled.button`
 const AccountDeposit = () => {
 
     const InputRef = useRef(null); // Input file DOM 가르키기
+    const history = useHistory();
+
     const [imgURL, SetimgURL] = useState("");
 
 
@@ -131,8 +134,9 @@ const AccountDeposit = () => {
     }
 
     const handleAddAccount = (e) => {
+        // 계좌 등록 API + Redux State 현 계좌 선택 저장 + 메인으로 이동
         e.preventDefault();
-        
+        history.push('/');
     }
     
 
@@ -151,7 +155,7 @@ const AccountDeposit = () => {
             <Input Type="text" Width="70%" Value="우리은행"/>
             <Input Type="text" Width="70%" Hint="계좌 번호를 입력하세요."/>
             <Input Type="text" Width="70%" Hint="일기 별칭을 지어주세요."/>
-            <Button OnClick='' Text="계좌 등록하기"/>
+            <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
         </DepositContainer>
     );
 }

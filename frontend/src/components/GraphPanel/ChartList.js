@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Graph = () => {
+const ChartList = () => {
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Graph = () => {
     );
 }
 
-export default Graph;
+export default ChartList;
