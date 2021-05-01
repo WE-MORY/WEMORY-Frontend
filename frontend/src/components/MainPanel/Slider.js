@@ -7,19 +7,9 @@ import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import Button from '../../assets/Button/Button';
 
 const CircleDiv = styled.div`
-    /* position: absolute; */
-    justify-content: center;
-    align-items: center;
-    display: flex;
     position:relative;
-    flex-direction: column;
-    height: 65vh;
-    &div{
-        width: 100px;
-        height: 100px;
-        overflow-x: hidden;
-    
-    }
+    top: 25%;
+    left: 25%;
     svg{
         stroke-dasharray: 100; /*이 값은 path의 길이와 동일합니다*/
         stroke-dashoffset: 100;
@@ -43,19 +33,16 @@ const BtnStyle = styled.div`
     button {
         max-width: 160px;
         font-family: spoqa-Light;
+        margin-top: 3vh;
 
     }
 `
 const Text = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* position: absolute; */
+    margin-top: 5vh;
     text-align: center;
-    height : 18vh;
+    height : 15vh;
     width : 50vw;
     font-size: 1.4rem;
-    overflow-x: hidden;
 
     
 `
@@ -63,22 +50,13 @@ const Text = styled.div`
 
 const Wrapper = styled.div`
     width: 30vw;
-    height: 60vh;
+    height: 50vh;
 `
 
 const Wrap = styled.div`
   /* margin: 5% auto; */
   width: 100vw;
 
-  /* .slick-prev:before {
-    opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
-    color: black; // 버튼 색은 검은색으로
-    left: 0;
-  }
-  .slick-next:before {
-    opacity: 1;
-    color: black;
-  } */
 `
 
 export default class SimpleSlider extends Component {
