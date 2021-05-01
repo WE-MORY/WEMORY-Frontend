@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InputStyle = styled.input`
-    font-family: 'Spoqa -Light';
+    font-family: 'Spoqa-Light';
     font-size: 0.7rem;
 
     /* 커서 삭제 */
