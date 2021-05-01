@@ -5,8 +5,8 @@ import Button from '../../assets/Button/Button';
 
 const CircleDiv = styled.div`
     position:relative;
-    top: 25%;
-    left: 25%;
+    top: 20%;
+    left: 15%;
     svg{
         stroke-dasharray: 100; /*이 값은 path의 길이와 동일합니다*/
         stroke-dashoffset: 100;
@@ -22,7 +22,6 @@ const CircleDiv = styled.div`
         }
 }
     }
-
     
 `
 const BtnStyle = styled.div`
@@ -31,7 +30,6 @@ const BtnStyle = styled.div`
         max-width: 160px;
         font-family: spoqa-Light;
         margin-top: 3vh;
-
     }
 `
 const Text = styled.div`
@@ -40,20 +38,23 @@ const Text = styled.div`
     height : 15vh;
     width : 50vw;
     font-size: 1.4rem;
-
     
 `
 
 
 const Wrapper = styled.div`
-    width: 30vw;
-    height: 50vh;
+    width: 250px;
+    height: 250px;
 `
 
 const Wrap = styled.div`
-  /* margin: 5% auto; */
-  width: 100vw;
-
+    position: relative;
+    top: 5vh;
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    overflow:hidden;
+    /* background-color: coral; */
 `
 
 export default class SimpleSlider extends Component {
@@ -73,7 +74,7 @@ export default class SimpleSlider extends Component {
                 
             <Wrapper>
                 <CircleDiv>
-                    <div>
+                    
                         <Text>
                             일기를 작성할<br />
                             계좌를 등록해주세요.
@@ -81,13 +82,12 @@ export default class SimpleSlider extends Component {
                                 <Button Text={"등록하기"} Width={"50vw"}></Button>
                             </BtnStyle>
                         </Text>
-                    </div>
+                    
                 </CircleDiv>
             </Wrapper>
             <Wrapper>
                 
                 <CircleDiv>
-                <div>
                         <Text>
                             일기를 작성할<br />
                             계좌를 등록해주세요.
@@ -95,12 +95,10 @@ export default class SimpleSlider extends Component {
                                 <Button Text={"등록하기"} Width={"50vw"}></Button>
                             </BtnStyle>
                         </Text>
-                        </div>
                     </CircleDiv>
             </Wrapper>
             <Wrapper>
             <CircleDiv>
-            <div>
                     <Text>
                         일기를 작성할<br />
                         계좌를 등록해주세요.
@@ -108,7 +106,6 @@ export default class SimpleSlider extends Component {
                             <Button Text={"등록하기"} Width={"50vw"}></Button>
                         </BtnStyle>
                     </Text>
-                    </div>
                 </CircleDiv>
             </Wrapper>
             </Slider>
@@ -117,5 +114,3 @@ export default class SimpleSlider extends Component {
     );
   }
 }
-
-{/* <Circle stroke = {MAIN_COLOR}></Circle> */}
