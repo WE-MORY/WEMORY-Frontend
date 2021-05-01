@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from 'styled-components';
 import Button from '../../assets/Button/Button';
+import {TEXT_WHITE, MAIN_COLOR, SUB_COLOR} from '../../assets/Colors/Color';
 
 const CircleDiv = styled.div`
     position:relative;
@@ -50,13 +51,20 @@ const Wrapper = styled.div`
 const Wrap = styled.div`
     position: relative;
     top: 5vh;
-    width: 250px;
-    height:250px;
+    width: 245px;
+    height:245px;
     border-radius: 50%;
     overflow:hidden;
     /* background-color: coral; */
 `
-
+const Info = styled.p`
+    width: 180px;
+    /* height: 250px; */
+    text-align: center;
+    padding-top: 2vh;
+    font-size: 0.9rem;
+    color: #ABC8FF;
+`
 export default class SimpleSlider extends Component {
   render() {
     const settings = {
@@ -82,6 +90,9 @@ export default class SimpleSlider extends Component {
                                 <Button Text={"등록하기"} Width={"50vw"}></Button>
                             </BtnStyle>
                         </Text>
+                        <Info>
+                            양옆으로 슬라이드 해보세요.
+                        </Info>
                     
                 </CircleDiv>
             </Wrapper>
@@ -94,6 +105,9 @@ export default class SimpleSlider extends Component {
                             <BtnStyle>
                                 <Button Text={"등록하기"} Width={"50vw"}></Button>
                             </BtnStyle>
+                            <Info>
+                                양옆으로 슬라이드 해보세요.
+                            </Info>
                         </Text>
                     </CircleDiv>
             </Wrapper>
@@ -105,6 +119,9 @@ export default class SimpleSlider extends Component {
                         <BtnStyle>
                             <Button Text={"등록하기"} Width={"50vw"}></Button>
                         </BtnStyle>
+                        <Info>
+                            양옆으로 슬라이드 해보세요.
+                        </Info>
                     </Text>
                 </CircleDiv>
             </Wrapper>
