@@ -5,10 +5,12 @@ const DatePickerComponent = () => {
       const [startDate, setStartDate] = useState(new Date());
       return (
         <DatePicker
-          selected={startDate}
-          onChange={date => setStartDate(date)}
-          dateFormat="MM/yyyy"
-          showMonthYearPicker
+            locale="ko"
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            dateFormat="MM/yyyy"
+            showMonthYearPicker
+            showFullMonthYearPicker
         />
         );
       };

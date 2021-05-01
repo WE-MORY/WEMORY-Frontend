@@ -8,8 +8,10 @@ import {
   BrowserRouter
 } from "react-router-dom";
 
+import "react-datepicker/dist/react-datepicker.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import '../assets/CSS/app.css';
+
 import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';

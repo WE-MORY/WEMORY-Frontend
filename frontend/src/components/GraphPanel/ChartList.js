@@ -7,10 +7,10 @@ import { MAIN_COLOR, TEXT_BLACK } from '../../assets/Colors/Color';
 
 
 const ChartTitle = styled.p`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-family: 'Cafe24';
     text-align: center;
-    margin-bottom: 30px;
+    margin: 0 0 100px 0;
 `;
 
 const ChartListContainer = styled.div`
@@ -29,11 +29,31 @@ const ChartDescription = styled.p`
     font-family: 'Cafe24';
     text-align: center;
     margin-top: 30px;
-    
 `;
 
 
-const data =[
+const DatePickerContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0 auto 20px;
+    input{
+        /* padding: 5px 0 5px 5px; */
+        width: 60px;
+        border: 0;
+        /* border-radius: 20px; */
+        text-align: center;
+        font-family: 'Spoqa-Regular';
+        /* border-bottom: 1px solid ${MAIN_COLOR}; */
+    }
+    span{
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+`;
+
+const data = [
     {
         week:'2021.04.01',
         money:10000
@@ -154,7 +174,6 @@ const data =[
 
 
 
-
 const ChartList = () => {
 
     useEffect(() => {
@@ -165,8 +184,11 @@ const ChartList = () => {
         <>
             <Header /> 
             <ChartListContainer>
-                <ChartTitle>이번 한 달 간의 발자취를 확인해볼까요?</ChartTitle>
-                <DatePickerComponent />
+            <ChartTitle>이번 한 달 간의 발자취를 확인해볼까요?</ChartTitle> 
+                <DatePickerContainer>
+                    <span>월 선택</span>
+                    <DatePickerComponent />
+                </DatePickerContainer>
                 <LineChart width={330} height={200} data={data} margin={{top:5, right: 20, bottom: 5, left: 0}} >
                     <Line type="monotone" dataKey="money" stroke={MAIN_COLOR} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
@@ -175,7 +197,7 @@ const ChartList = () => {
                     <Tooltip />
                 </LineChart>
                 <ChartDescription>
-                    sdfsdf
+                    {/* Sort하여 가장 많이 적금한 날 출력! */}
                 </ChartDescription>
             </ChartListContainer>
         </>
