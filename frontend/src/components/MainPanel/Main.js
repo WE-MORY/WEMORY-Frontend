@@ -13,43 +13,13 @@ import SimpleSlider from './Slider';
 
 const MainDiv = styled.div`
     display: flex;
+    background-color: white;
     height: auto;
     flex-direction: column;
     align-items: center;
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
     overflow-x: hidden;
 `
-
-// const Text = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     position: absolute;
-//     text-align: center;
-//     height : 18vh;
-//     font-size: 1.4rem;
-    
-// `
-
-// const CircleDiv = styled.div`
-//     /* position: absolute; */
-//     justify-content: center;
-//     align-items: center;
-//     display: flex;
-//     flex-direction: column;
-//     height: 70vh;
-
-    
-// `
-
-// const BtnStyle = styled.div`
-    
-//     button {
-//         max-width: 160px;
-//         font-family: spoqa-Light;
-
-//     }
-// `
 
 const ListDiv = styled.div`
     display: flex;
@@ -61,7 +31,6 @@ const ListDiv = styled.div`
 const ContentDiv = styled.div`
     background: url(${Pic1}) center center no-repeat;
     background-size: contain;
-    background-color: coral;
     margin: 0.2vh 0.2vw;
     width: 120px;
     height: 120px;

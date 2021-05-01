@@ -5,6 +5,8 @@ import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg'
 const HeaderDiv = styled.div`
     height: 8vh;
     width: 100%;
+    background-color: rgb(255,255,255);
+    /* position: fixed; */
 `
 const BtnStyle = styled.div`
     position: absolute;
