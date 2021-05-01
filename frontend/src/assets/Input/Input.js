@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InputStyle = styled.input`
-    font-family: 'Spoca-Light';
+    font-family: 'Spoqa-Light';
     font-size: 0.7rem;
 
     /* 커서 삭제 */
@@ -21,9 +21,9 @@ const InputStyle = styled.input`
     }
     `
 
-const Input = ({Ref, Width, Hint, Type, OnChange}) => {
+const Input = ({Ref, Width, Hint, Type, OnChange, Value}) => {
     return (
-            <InputStyle ref={Ref} type={Type} onChange={OnChange} width={Width} placeholder={Hint} required/>  
+            <InputStyle ref={Ref} type={Type} onChange={OnChange} width={Width} placeholder={Hint} value={Value} required/>  
     );
 }
 
