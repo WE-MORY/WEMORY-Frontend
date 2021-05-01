@@ -32,6 +32,7 @@ import AccountDeposit from './AccountPanel/Account/AccountDeposit';
 
 import CalendarList from './CalendarPanel/CalendarList';
 import ChartList from './GraphPanel/ChartList';
+import purposeSetting from './purposePanel/PurposeSetting';
 
 
 // RESET.CSS
@@ -124,6 +125,9 @@ const App = () => {
             {/* 유저 로그인/회원가입 페이지 */}
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={Signup} />
+            {/* 목표 설정 페이지 */}
+            <Route exact path='/purpose' component={purposeSetting} />
+
           </MobileContainer>
         </BrowserRouter>
       </Mobile>
