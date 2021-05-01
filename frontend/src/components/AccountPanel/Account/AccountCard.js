@@ -32,9 +32,7 @@ const AccountImageCard = (props) => {
 }
 
 const AccountCreateCard = () => {
-
     const history = useHistory();
-
     return <CardContainer onClick={()=>history.push('/')} id='create' /> 
 }
 

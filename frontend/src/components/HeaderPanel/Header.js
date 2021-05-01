@@ -31,7 +31,7 @@ const HeaderPanel = styled.div`
     height: 50px;
     width: 100%;
     background-color: rgb(255,255,255);
-    // 크기 확인용 border. 
+    /* // 크기 확인용 border.  */
     /* border: 1px solid black; */
 
     

@@ -1,0 +1,73 @@
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import Header from '../HeaderPanel/Header';
+import Button from '../../assets/Button/Button';
+import Input from '../../assets/Input/Input';
+import { ReactComponent as MainLogo } from '../../assets/Images/MainLogo.svg'
+
+
+const PurPoseContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+    width: 80%;
+
+    input{
+        min-width: 200px;
+    }
+
+    input + input{
+        margin-top: 10px;
+    }
+
+    button{ 
+        width: 70%;
+        min-width: 220px;
+        margin-top: 20px;
+    }
+`;
+
+const LogoTitle = styled.p`
+    font-family:'Cafe24';
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 80px;
+
+    &#SignUpText{
+        font-family:'Spoqa-Light';
+        font-size: 0.8rem;
+        margin-top: 5%;
+    }
+`;
+
+
+const PurposeSetting = () => {
+
+    const [title, SetTitle] = useState();
+    const [money, SetMoney] = useState();
+    
+    const history = useHistory();
+    
+    const handleSubmitSetting = (e) => {
+        e.preventDefault();
+        // 목표 설정 생성 API (title/money)
+        history.push('/');
+    } 
+    return (
+        <>
+        <Header />
+        <PurPoseContainer>
+            <LogoTitle>어떤 추억을 쌓으실 건가요?<br />목표를 설정하여 도전 해보세요!</LogoTitle>
+            <Input Type="text" OnChange={(e)=>{SetTitle(e.target.value)}} value={title} Hint="목표 타이틀을 적어주세요." Width="70%" />
+            <Input Type="text" OnChange={(e)=>{SetMoney(e.target.value)}} value={money} Hint="목표 금액을 설정해주세요." Width="70%"/>
+            <Button OnClick={handleSubmitSetting} Text="설정하기" />     
+        </PurPoseContainer>
+        </>
+    );
+}
+
+export default PurposeSetting;
