@@ -1,8 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import {ReactComponent as Calendar} from '../../assets/Images/calendar.svg';
-import Yumin from '../MainPanel/Drawer';
+import Drawer from '../MainPanel/Drawer';
 
 const MenuStyle = styled.div`
     position: absolute;
@@ -43,8 +42,7 @@ const Header = () => {
         <>  
             <HeaderPanel>
                 <MenuStyle>
-                    <Yumin />
-                    {/* <Burgermenu width="25" height="25" /> */}
+                    <Drawer />
                 </MenuStyle>
 
                 <CalendarStyle>

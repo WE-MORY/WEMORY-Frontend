@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from 'styled-components';
-// import cat from '../../assets/Images/textImg/cat2.png'
-import { MAIN_COLOR } from '../../assets/Colors/Color';
-import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import Button from '../../assets/Button/Button';
 
 const CircleDiv = styled.div`

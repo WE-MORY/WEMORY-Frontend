@@ -10,7 +10,6 @@ import Pic1 from '../../assets/Images/cat.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from './Slider';
-import Yumin from './Drawer';
 
 const MainDiv = styled.div`
     display: flex;

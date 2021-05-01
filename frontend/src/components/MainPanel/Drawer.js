@@ -1,6 +1,4 @@
 import React from 'react';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { Typography } from "@material-ui/core";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -9,7 +7,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import styled from 'styled-components';
-import { red } from '@material-ui/core/colors';
 
 
 const Theme = styled.div`
@@ -63,7 +60,7 @@ const useStyles = makeStyles({
 }
 );
 
-export default function Yumin({SideMenu}) {
+export default function Drawer({SideMenu}) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false
