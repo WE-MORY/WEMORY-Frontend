@@ -8,8 +8,11 @@ import {
   BrowserRouter
 } from "react-router-dom";
 
-import CssBaseline from "@material-ui/core/CssBaseline";
 import '../assets/CSS/app.css';
+import "react-datepicker/dist/react-datepicker.css";
+
+
+import CssBaseline from "@material-ui/core/CssBaseline";
 import {TEXT_BLACK} from '../assets/Colors/Color';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
@@ -60,6 +63,7 @@ html{
   font-size: 12px;
   font-family: 'Spoqa-Light';
   color: ${TEXT_BLACK};
+  background-color: white  !important;
 }
 
 /* HTML5 display-role reset for older browsers */
