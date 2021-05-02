@@ -98,9 +98,8 @@ const AccountList = () => {
         console.log(user.data.id);
         try {
            const response = await UserDiarySearch(user.data.id);
-           data = [...data, response.data.diary_list];
-           SetDataset(data);
-           console.log(Dataset);
+           data = response.data.diary_list;
+           console.log(data);
         } catch(err){
             console.log(err);
         }
@@ -110,23 +109,22 @@ const AccountList = () => {
         dispatch(setCurrentDiaryID(diary_id));
     }
 
-    const renderList = () => 
+    const renderList = 
             Dataset.length > 0 &&
-            Dataset.map(n =>
-                n.map(m => 
+            Dataset.map(n => 
                     <ListItem>
-                        <StyledLink onClick={handleChoiceDiary(m.id)}>
-                        <AccountImageCard backgroundImg={m.image}/>
-                        <ItemDescription>{m.title}</ItemDescription>
+                        <StyledLink onClick={handleChoiceDiary(n.id)}>
+                        <AccountImageCard backgroundImg={n.image}/>
+                        <ItemDescription>{n.title}</ItemDescription>
                         </StyledLink>
                     </ListItem>
-    ));
+    );
 
     
 
     useEffect(()=>{
         RenderDiaryList();
-    },[diaryID])
+    },[])
 
     return (
         <>
