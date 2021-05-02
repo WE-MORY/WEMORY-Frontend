@@ -42,16 +42,15 @@ const PicInput = styled.input`
 `
 
 const PicLabel = styled.label`
-    display: flex;
+    /* display: flex;
     width: 70vw;
-    height: 55vh;
+    height: 40vh; */
     border: 1px solid black;
     border-radius: 50px;
-    align-items: center;
-    justify-content: center;
-    margin: 10vh 0 ;
+    /* margin: 10vh 0 5vh 0; */
     position: relative;
-    font-size: 1.3rem;
+    font-size: 1.1rem; 
+    padding: 10px;
 
 `
 const TextInput = styled.input`
@@ -70,10 +69,12 @@ const TextInput = styled.input`
 `
 
 const ImgStyle = styled.img`
-    position: absolute;
-    height: 56vh;
-    width: 70vw;
-    border-radius: 50px;
+    /* position: absolute; */
+
+    height: 200px;
+    width: 200px;
+    margin: 5vh 0;
+    /* border-radius: 50px; */
 `
 
 export default function Create() {
@@ -131,17 +132,15 @@ export default function Create() {
 
         <MainDiv>
             <DateDiv>{year} . {month} . {day}  ({daily()})</DateDiv>
-            <PicLabel for="imgFile" >이 곳을 터치해 사진을 첨부하세요. </PicLabel>
-            <ImgStyle src={imgBase} alt="사진이 안떠요" />
+            <ImgStyle src={imgBase} alt="+"/>
+            <PicLabel for="imgFile" >이 곳을 클릭해 사진을 첨부하세요.</PicLabel>
             <PicInput name = "imgFile" type="file" id="imgFile" onChange={handleChangeFile}/>
             <div>
                 <TextInput />
                 <TextInput />
                 <TextInput />
             </div>
-            <TransitionsModal />
-            {/* <Button Text={"다음 단계로 이동하기"} Width={"80vw"}></Button> */}
-        
+            <TransitionsModal />        
         </MainDiv>
         </>
     )

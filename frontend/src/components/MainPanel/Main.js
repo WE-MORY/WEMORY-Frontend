@@ -10,6 +10,19 @@ import Pic1 from '../../assets/Images/cat.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from './Slider';
+// import Content from './Content';
+// import ContentBox from './Content';
+
+const TestDataURL = [
+    {
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
+        description: "테스트1"
+    },
+    {
+        ImgURL: '../../../assets/Images/textImg/cat2.png',
+        description: "테스트2"
+    },
+];
 
 const MainDiv = styled.div`
     display: flex;
@@ -24,23 +37,21 @@ const MainDiv = styled.div`
 const ListDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
-    /* align-content: space-around; */
-    justify-content: center;
     width: 90vw;    
 ` 
-const ContentDiv = styled.div`
-    background: url(${Pic1}) center center no-repeat;
-    background-size: contain;
-    margin: 0.2vh 0.2vw;
-    width: 120px;
-    height: 120px;
-`
+
 const TextBox =  styled.div`
     text-align: left;
     font-family: 'Spoqa-Regular';
     font-size: 1.5rem;
     margin: 10vh 0 5vh 0 ;
     width: 85vw;
+`
+
+const ImgStyle = styled.div`
+    img{
+        padding: 3px;
+    }
 `
 
 const Test = styled.div`
@@ -64,8 +75,8 @@ const Test = styled.div`
 `
 
 const Main = () => {
-    // const repeat = ['${pic1}', '${pic2}'];
-    // const repeatLi = repeat.map(div => {ContentDiv});
+    const repeat = ['https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg','https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg'];
+    const repeatLi = repeat.map((src, index)=> <img width="100px" height="100px" key={index} src={src}/>);
     return (
         <>
             <Header />
@@ -82,7 +93,9 @@ const Main = () => {
                     </span> 
                 </TextBox>
                 <ListDiv>
-                   <ContentDiv />
+                    <ImgStyle>
+                        {repeatLi}
+                    </ImgStyle>
                 </ListDiv>
             </MainDiv>
         </>
