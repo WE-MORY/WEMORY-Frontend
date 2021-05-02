@@ -1,10 +1,7 @@
 import React from 'react'
-import Header from '../../HeaderPanel/Header'
 import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
-import {useState} from 'react'
-import Button from '../../../assets/Button/Button'
-import TransitionsModal from './Modal'
+
 // import {Pic} from '../../../assets/Images/textImg/cat1.jpg
 
 const MainDiv = styled.div`

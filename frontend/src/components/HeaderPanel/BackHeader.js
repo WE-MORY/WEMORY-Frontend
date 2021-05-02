@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {useHistory, withRouter} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg';
 
 const HeaderDiv = styled.div`

@@ -4,7 +4,6 @@ import moment from 'moment';
 import {Link} from 'react-router-dom';
 import { MAIN_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
 import BackHeader from '../../HeaderPanel/BackHeader';
-import LinkAsset from '../../../assets/StyledLink/StyledLink';
 
 
 const StyledLink = styled(Link)`

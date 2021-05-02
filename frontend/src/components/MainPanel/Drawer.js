@@ -9,7 +9,6 @@ import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Button from '../../assets/Button/Button';
-import {TEXT_WHITE, MAIN_COLOR, SUB_COLOR, TEXT_BLACK} from '../../assets/Colors/Color'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -50,10 +49,7 @@ const Name = styled.span`
   font-family: "Spoqa-Regular";
 `
 
-const Setting = styled.button`
-  margin-top: 1vh;
-  /* display: block; */
-`
+
 
 const useStyles = makeStyles({
   list: {
@@ -98,6 +94,13 @@ export default function Drawer({SideMenu}) {
             </ProfileTextDiv>
       </ProfileDiv>
       <List>
+      <ListItem>
+          <ListItemText>
+            <StyledLink to="/">
+              MAIN
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
         <ListItem>
           <ListItemText>
             <StyledLink to="/diarylist">
