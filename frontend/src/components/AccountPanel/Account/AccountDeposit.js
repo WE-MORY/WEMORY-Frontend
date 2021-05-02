@@ -93,11 +93,8 @@ const SelectImgBox = styled.button`
         position: relative;
         top: 0;
         left: 0;
+        opacity: .5;
         font-size: 1rem;
-        strong{
-            color: ${MAIN_COLOR};
-            font-size: 2rem;
-        }
     }
 `;
 
@@ -165,7 +162,7 @@ const AccountDeposit = () => {
                     <LogoTitle>추억을 쌓는 통장 이야기</LogoTitle>
                 </LogoContainer>
                 <SelectImgBox Imgsrc={imgURL} onClick={handleSelectImg}>
-                    <span><strong>CLICK</strong> <br/>통장 일기 커버를 등록하세요!</span>
+                    <span>터치해서 통장 일기 커버를 등록하세요!</span>
                 </SelectImgBox>
                 <LogoTitle id='description'>통장 일기로 등록 할 계좌를 입력해주세요.</LogoTitle>
                 <InputFile ref={InputRef} id="imgFile" type="file" onChange={handleChangeFile} accept="image/png, image/jpeg" />
