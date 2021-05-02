@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../../HeaderPanel/Header';
+import BackHeader from '../../HeaderPanel/BackHeader';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
 
 const TitleContainer = styled.div`
@@ -92,7 +92,7 @@ const TestDataURL = [
 const AccountList = () => {
     return (
         <>
-            <Header />
+            <BackHeader />
             <TitleContainer>
                 <TitleText>
                     <strong>하유민</strong> 님의 일기장 계좌

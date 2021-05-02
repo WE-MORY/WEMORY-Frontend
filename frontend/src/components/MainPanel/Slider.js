@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import styled from 'styled-components';
 import Button from '../../assets/Button/Button';
 import Goal from '../../assets/Lottie/goal.json';
+import LinkAsset from '../../assets/StyledLink/StyledLink';
 
 const defaultOptions = {
     loop: true,
@@ -119,9 +120,11 @@ export default class SimpleSlider extends Component {
                         <Text>
                             일기를 작성할<br />
                             계좌를 등록해주세요.
-                            <BtnStyle>
-                                <Button Text={"등록하기"} Width={"50vw"}></Button>
-                            </BtnStyle>
+                            <Link to="/accountdeposit">
+                                <BtnStyle>
+                                    <Button Text={"등록하기"} Width={"50vw"}></Button>
+                                </BtnStyle>
+                            </Link>
                         </Text>
                         <Info>
                             양옆으로 슬라이드 해보세요.
@@ -135,9 +138,11 @@ export default class SimpleSlider extends Component {
                         <Text>
                             일기를 작성할<br />
                             계좌를 등록해주세요.
-                            <BtnStyle>
-                                <Button Text={"등록하기"} Width={"50vw"}></Button>
-                            </BtnStyle>
+                            <Link to="/accountdeposit">
+                                <BtnStyle>
+                                    <Button Text={"등록하기"} Width={"50vw"}></Button>
+                                </BtnStyle>
+                            </Link>
                             <Info>
                                 양옆으로 슬라이드 해보세요.
                             </Info>

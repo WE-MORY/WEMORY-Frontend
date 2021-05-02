@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
+import {Link} from 'react-router-dom';
 import { MAIN_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
 import BackHeader from '../../HeaderPanel/BackHeader';
+import LinkAsset from '../../../assets/StyledLink/StyledLink';
+
 
 const ListContainer = styled.div`
     width: 100%;
@@ -41,6 +44,10 @@ const ContentBox = styled.div`
     display: flex;
     margin: 5px 0 10px;
     padding: 0 15px;
+    ::active {
+        transition: .8s;
+        background-color: grey;
+    }
 `;
 
 // 이미지 컨테이너
@@ -174,24 +181,27 @@ export default function List() {
         <>
         <BackHeader />
         <ListContainer>
-            <ListTitle>여러분의 발자취를 확인 해보아요.</ListTitle>
+            <ListTitle>여러분의 발자취를 확인 해보세요.</ListTitle>
             <ListSubTitle><strong>Click</strong> 시, 일기 내용을 볼 수 있어요.</ListSubTitle>
             {/* DataSet Form */}
             <ListBox>
                 <LineText>5월 - 180,000원</LineText>
-                <ContentBox onClick={ListRenderingBox}>
-                    <ImgBox>
-                        <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />
-                    </ImgBox>
-                    <TextBox>
-                        <SubTitle>귀여운 고양이</SubTitle>
-                        <BoxContent>밈미지롱</BoxContent>
-                        <FooterContent>
-                            <DatetimeText>5. 23</DatetimeText>
-                            <PostMoneyText>+60,000원</PostMoneyText>
-                        </FooterContent>
-                    </TextBox>
-                </ContentBox>
+                첫 번째 
+                <LinkAsset to="/diarydetail">
+                    <ContentBox onClick={ListRenderingBox}>
+                        <ImgBox>
+                            <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />
+                        </ImgBox>
+                        <TextBox>
+                            <SubTitle>귀여운 고양이</SubTitle>
+                            <BoxContent>밈미지롱</BoxContent>
+                            <FooterContent>
+                                <DatetimeText>5. 23</DatetimeText>
+                                <PostMoneyText>+60,000원</PostMoneyText>
+                            </FooterContent>
+                        </TextBox>
+                    </ContentBox>
+                </LinkAsset>
                 <ContentBox>
                     <ImgBox>
                         <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />

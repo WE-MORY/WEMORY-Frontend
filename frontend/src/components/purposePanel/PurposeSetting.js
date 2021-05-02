@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import piggy_bank from '../../assets/Lottie/piggy_bank.json';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from '../HeaderPanel/Header';
+import BackHeader from '../../components/HeaderPanel/BackHeader';
 import Button from '../../assets/Button/Button';
 import Input from '../../assets/Input/Input';
 
@@ -71,7 +71,7 @@ const PurposeSetting = () => {
     } 
     return (
         <>
-        <Header />
+        <BackHeader />
         <PurPoseContainer>
         <PiggyBank>
             <Lottie options={defaultOptions} height={200} width={200} />
