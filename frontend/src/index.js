@@ -13,9 +13,6 @@ const theme = createMuiTheme({
   },
 }
 )
-
-  
-
 const store = configureStore(reducer);
 
 ReactDOM.render(
