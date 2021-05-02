@@ -54,7 +54,6 @@ const Text = styled.div`
     
 `
 
-
 const Wrapper = styled.div`
     width: 250px;
     height: 250px;
@@ -67,6 +66,7 @@ const Wrap = styled.div`
     height:245px;
     border-radius: 50%;
     overflow:hidden;
+    /* background-color: coral */
     /* background-color: coral; */
 `
 const Info = styled.p`
@@ -98,6 +98,15 @@ const GoalBtn = styled.button`
         transition: .3s;
         background-color: rgb(255, 201, 61);
     }
+`
+
+const CircleDiv2 = styled.div`
+    background-color: coral;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    bottom: 5vh;
 `
 
 export default class SimpleSlider extends Component {
@@ -134,21 +143,22 @@ export default class SimpleSlider extends Component {
             </Wrapper>
             <Wrapper>
                 
-                <CircleDiv>
+            <CircleDiv>
                         <Text>
-                            일기를 작성할<br />
-                            계좌를 등록해주세요.
-                            <Link to="/accountdeposit">
+                            좋은 일을 기록해볼까요?
+                            <Link to="/diarycreate">
                                 <BtnStyle>
-                                    <Button Text={"등록하기"} Width={"50vw"}></Button>
+                                    <Button Text={"기록하기"} Width={"50vw"}></Button>
                                 </BtnStyle>
                             </Link>
-                            <Info>
-                                양옆으로 슬라이드 해보세요.
-                            </Info>
                         </Text>
-                    </CircleDiv>
+                        <Info>
+                            양옆으로 슬라이드 해보세요.
+                        </Info>
+                    
+                </CircleDiv>
             </Wrapper>
+
             <Wrapper>
                     <GoalDiv>
                         <Lottie options={defaultOptions} height={150} width={150} />

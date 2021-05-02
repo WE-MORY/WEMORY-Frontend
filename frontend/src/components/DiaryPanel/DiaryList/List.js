@@ -87,6 +87,8 @@ const BoxContent = styled.p`
     font-family: 'Cafe24';
     height: 50%;
     font-size: 1.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
 `;
 
 const FooterContent = styled.div`
@@ -194,7 +196,7 @@ export default function List() {
                         </ImgBox>
                         <TextBox>
                             <SubTitle>귀여운 고양이</SubTitle>
-                            <BoxContent>밈미지롱</BoxContent>
+                            <BoxContent>alaal</BoxContent>
                             <FooterContent>
                                 <DatetimeText>5. 23</DatetimeText>
                                 <PostMoneyText>+60,000원</PostMoneyText>
@@ -208,7 +210,7 @@ export default function List() {
                     </ImgBox>
                     <TextBox>
                         <SubTitle>귀여운 고양이</SubTitle>
-                        <BoxContent>밈미지롱</BoxContent>
+                        <BoxContent>sdfsdfsdf</BoxContent>
                         <FooterContent>
                             <DatetimeText>5. 23</DatetimeText>
                             <PostMoneyText>+60,000원</PostMoneyText>
