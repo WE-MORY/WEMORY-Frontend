@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import styled from 'styled-components';
 import Button from '../../assets/Button/Button';
 import Goal from '../../assets/Lottie/goal.json';
-import LinkAsset from '../../assets/StyledLink/StyledLink';
 
 const defaultOptions = {
     loop: true,
@@ -100,14 +99,7 @@ const GoalBtn = styled.button`
     }
 `
 
-const CircleDiv2 = styled.div`
-    background-color: coral;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    position: relative;
-    bottom: 5vh;
-`
+
 
 export default class SimpleSlider extends Component {
   render() {

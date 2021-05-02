@@ -1,9 +1,7 @@
 import React from 'react'
-import Header from '../../HeaderPanel/Header'
 import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
 import {useState} from 'react'
-import Button from '../../../assets/Button/Button'
 import TransitionsModal from './Modal'
 
 
