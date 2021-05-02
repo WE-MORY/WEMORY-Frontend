@@ -1,6 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg'
+import React, {useEffect} from 'react';
+import styled from 'styled-components';
+// import {useHistory} from 'react-router-dom';
+import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg';
 
 const HeaderDiv = styled.div`
     height: 8vh;
@@ -16,6 +17,12 @@ const BtnStyle = styled.div`
 
 
 export default function BackHeader() {
+    // const History = ({history}) => {
+    //     const goBack = () => {
+    //         history.goBack();
+    //     }
+
+    // }
     return (
         <>
             <HeaderDiv>
