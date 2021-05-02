@@ -31,12 +31,13 @@ const CardContainer = styled.div`
 const CardList = styled.ol`
     display: flex;
     flex-wrap: wrap;
+    width: 90%;
 `;
 
 const ListItem = styled.li`
     width: 100%;
     flex-basis: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 `;
 
 const ItemDescription = styled.div`
@@ -48,43 +49,43 @@ const ItemDescription = styled.div`
 
 const TestDataURL = [
     {
-        ImgURL: '../../../assets/Images/textImg/cat1.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트1"
     },
     {
-        ImgURL: '../../../assets/Images/textImg/cat2.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트2"
     },
     {
-        ImgURL: '../../../assets/Images/textImg/cat3.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트3"
     },
     {
-        ImgURL: '../../../assets/Images/textImg/cat4.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트4"
     },
     {
-        ImgURL: '../../../assets/Images/textImg/cat5.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트5"
     }
     ,{
-        ImgURL: '../../../assets/Images/textImg/cat6.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트6"
     }
     ,{
-        ImgURL: '../../../assets/Images/textImg/cat7.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트7"
     }
     ,{
-        ImgURL: '../../../assets/Images/textImg/cat8.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트8"
     }
     ,{
-        ImgURL: '../../../assets/Images/textImg/cat9.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트9"
     }
     ,{
-        ImgURL: '../../../assets/Images/textImg/cat10.png',
+        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
         description: "테스트10"
     }
 ];
@@ -104,12 +105,20 @@ const AccountList = () => {
                         <AccountCreateCard />
                     </ListItem>
                     <ListItem>
-                        <AccountImageCard backgroundImg={TestDataURL[0].ImgURL}/>
-                        <ItemDescription>{TestDataURL[0].description}</ItemDescription>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
+                        <ItemDescription>통장 이름</ItemDescription>
                     </ListItem>
                     <ListItem>
-                        <AccountImageCard backgroundImg={TestDataURL[1].ImgURL}/>
-                        <ItemDescription>{TestDataURL[1].description}</ItemDescription>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
+                        <ItemDescription>통장 이름</ItemDescription>
+                    </ListItem>
+                    <ListItem>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
+                        <ItemDescription>통장 이름</ItemDescription>
+                    </ListItem>
+                    <ListItem>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
+                        <ItemDescription>통장 이름</ItemDescription>
                     </ListItem>
                 </CardList>
             </CardContainer>

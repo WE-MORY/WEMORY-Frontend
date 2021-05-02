@@ -91,7 +91,7 @@ const LoginPage = () => {
             const response = await TokenAPI(ID, PW);
             console.log(response)   
             const userToken = response.data.token;
-            // userToken
+            // userToken Redux State 저장
             dispatch(setCurrentAuthToken(userToken));
             history.push('/');
             
@@ -105,7 +105,8 @@ const LoginPage = () => {
 
     return (
         <>
-        { isLoading ? 
+        { 
+            isLoading ? 
             <Loader /> :
             <LoginContainer>
                 <LogoContainer>

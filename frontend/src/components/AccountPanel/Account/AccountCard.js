@@ -21,8 +21,8 @@ const CardContainer = styled.div`
         }
     }
     &.image_card{
-        /* background: url(${props=>props.background_src}) no-repeat; */
-        border: 1px solid red;
+        background: url(${props=>props.background_src}) no-repeat;
+        background-size: cover;
     }
 `;
 
