@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { MAIN_COLOR } from '../../../assets/Colors/Color';
-import BackHeader from '../../HeaderPanel/Header';
+import BackHeader from '../../HeaderPanel/BackHeader';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
 
 
@@ -27,7 +27,6 @@ const PageDescription = styled.p`
         color: ${MAIN_COLOR};
     }
 `;
-
 
 const TitleContainer = styled.div`
     display: flex;
@@ -120,8 +119,12 @@ const AccountList = () => {
 
     return (
         <>
+        <BackHeader />
         <AccountListContainer>
-            <BackHeader />
+            <PageDescription>
+                여러분들의 추억이 담을 일기를 만들어보세요.
+                <strong>일기를 클릭하면 선택됩니다.</strong>
+            </PageDescription>
             <TitleContainer>
                 <TitleText>
                     <strong>하유민</strong> 님의 일기장 계좌
@@ -131,18 +134,6 @@ const AccountList = () => {
                 <CardList>
                     <ListItem>
                         <AccountCreateCard />
-                    </ListItem>
-                    <ListItem>
-                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
-                        <ItemDescription>통장 이름</ItemDescription>
-                    </ListItem>
-                    <ListItem>
-                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
-                        <ItemDescription>통장 이름</ItemDescription>
-                    </ListItem>
-                    <ListItem>
-                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
-                        <ItemDescription>통장 이름</ItemDescription>
                     </ListItem>
                     <ListItem>
                         <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>

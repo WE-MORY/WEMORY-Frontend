@@ -17,9 +17,9 @@ const BtnStyle = styled.div`
 
 
 export default function BackHeader() {
-    const history = useHistory()
+    const history = useHistory();
     const Back = () => {
-        history.goBack()
+        history.push('/');
     }
     
     return (

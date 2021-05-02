@@ -81,8 +81,8 @@ const SelectImgBox = styled.button`
     border: 1px solid ${MAIN_COLOR};
     border-radius: 50px;
     background-color: white;
-    /* background: url("${props=>props.Imgsrc}") no-repeat; */
-    background-size: contain;
+    background: url(${props=>props.Imgsrc}) no-repeat;
+    background-size: cover;
     
     :active{
                 background-color:${MAIN_COLOR};
@@ -108,6 +108,12 @@ const AccountDeposit = () => {
     const history = useHistory();
 
     const [imgURL, SetimgURL] = useState("");
+    const [imgFile, SetimgFile] = useState(null);
+
+    const [accountnumber, Setaccountnumber] = useState('');
+    const [accountTitle, SetaccountTitle] = useState('');
+
+
 
 
     const handleSelectImg = (e) => {
@@ -115,8 +121,9 @@ const AccountDeposit = () => {
         InputRef.current.click();
     }
 
-    const handleChangeFile = (e) => {
+    const handleChangeFile = (event) => {
         let reader = new FileReader();
+
         // 파일이 다 올라왔으면 실행 
         reader.onload = () => {
             // reader 에서 가져온 이미지 base 에 저장 
@@ -124,17 +131,25 @@ const AccountDeposit = () => {
             // base 가 true 인 경우 
             if (base) {
                 // state 업데이트
-                console.log(base.toString());
                 SetimgURL(base.toString()); 
             } 
-            if (e.target.files[0]){
-                const result = reader.readAsDataURL(e.target.files[0])
-                console.log(result);
-            }
+        }
+        // 업로드 된 파일이 한 개라서 인덱스 0 
+        if (event.target.files[0]){
+            reader.readAsDataURL(event.target.files[0])
+            SetimgFile(event.target.files[0]);
         }
     }
 
-    const handleAddAccount = (e) => {
+    const handleAddAccount = async (e) => {
+        const fd = new FormData();
+        fd.append('file', imgFile);
+        try{
+            // 어카운트 생성 API적용
+        }catch(err){
+            alert(err.response.message);
+        }
+; 
         // 계좌 등록 API + Redux State 현 계좌 선택 저장 + 메인으로 이동
         e.preventDefault();
         history.push('/');
@@ -153,11 +168,16 @@ const AccountDeposit = () => {
                     <span><strong>CLICK</strong> <br/>통장 일기 커버를 등록하세요!</span>
                 </SelectImgBox>
                 <LogoTitle id='description'>통장 일기로 등록 할 계좌를 입력해주세요.</LogoTitle>
-                <InputFile ref={InputRef} type="file" onChange={handleChangeFile} accept="image/png, image/jpeg" />
+                <InputFile ref={InputRef} id="imgFile" type="file" onChange={handleChangeFile} accept="image/png, image/jpeg" />
+
                 {/* Test용 우리은행만 지정 */}
                 <Input Type="text" Width="70%" Value="우리은행"/>
-                <Input Type="text" Width="70%" Hint="계좌 번호를 입력하세요."/>
-                <Input Type="text" Width="70%" Hint="일기 별칭을 지어주세요."/>
+                <Input Type="text" OnChange={(e)=>{
+                    Setaccountnumber(e.target.value);
+                }}Width="70%" Value={accountnumber} Hint="계좌 번호를 입력하세요."/>
+                <Input Type="text" OnChange={(e)=>{
+                    SetaccountTitle(e.target.value);
+                }}Width="70%" Value={accountTitle} Hint="일기 별칭을 지어주세요."/>
                 <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
             </DepositContainer>
         </>
