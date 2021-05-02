@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { MAIN_COLOR } from '../../../assets/Colors/Color';
 import Header from '../../HeaderPanel/Header';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
+
+
+const AccountListContainer = styled.div`
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+`;
+
+const PageDescription = styled.p`
+    font-family: 'Cafe24';
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    height: 150px;
+    strong{
+        font-size: 1.2rem;
+        color: ${MAIN_COLOR};
+    }
+`;
+
 
 const TitleContainer = styled.div`
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 50px;
 `;
 
 const TitleText = styled.h1`
-    font-size: 2rem;
+    font-size: 1.2rem;
     width: 80%;
     margin: 0 auto;
     
     strong{
-        font-size: 2.2rem;
+        font-size: 1.5rem;
         font-family: 'Spoqa-Regular';
     }
 `;
@@ -91,9 +117,15 @@ const TestDataURL = [
 ];
 
 const AccountList = () => {
+
     return (
         <>
             <Header />
+            <AccountListContainer>
+            <PageDescription>
+                여러분들의 추억이 담을 일기를 만들어보세요.
+                <strong>일기를 클릭하면 선택됩니다.</strong>
+            </PageDescription>
             <TitleContainer>
                 <TitleText>
                     <strong>하유민</strong> 님의 일기장 계좌
@@ -122,6 +154,7 @@ const AccountList = () => {
                     </ListItem>
                 </CardList>
             </CardContainer>
+            </AccountListContainer>
         </>
     );
 }
