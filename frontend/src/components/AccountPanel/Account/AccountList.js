@@ -88,19 +88,18 @@ const AccountList = () => {
 
     const [Dataset, SetDataset] = useState([]);
     const userInfo = useSelector(state=>state.auth.currentToken);
+    const diaryID = useSelector(state=>state.diary.currentDiaryID);
     const dispatch = useDispatch();
     const history = useHistory();
 
     const RenderDiaryList = async () => {
         let data = [];
         const user = await WithDrawCheckAPI(userInfo);
-        console.log(user.data.user_id);
+        console.log(user.data.id);
         try {
-           const response = await UserDiarySearch(user.data.user_id);
-           console.log(response.data.diary_list);
-           data = [...data, response.data.diary_list];
-           SetDataset(data);
-        //    console.log(Dataset);
+           const response = await UserDiarySearch(user.data.id);
+           data = response.data.diary_list;
+           console.log(data);
         } catch(err){
             console.log(err);
         }
@@ -108,22 +107,17 @@ const AccountList = () => {
 
     const handleChoiceDiary = (diary_id) => {
         dispatch(setCurrentDiaryID(diary_id));
-        history.push('/');
     }
 
-    const renderList = () => 
+    const renderList = 
             Dataset.length > 0 &&
             Dataset.map(n => 
-                    n.map((m, i )=> 
-                
-                    <ListItem key={i}>
-                        <StyledLink onClick={handleChoiceDiary(m.id)}>
-                        <AccountImageCard backgroundImg={m.image}/>
-                        <ItemDescription>{m.title}</ItemDescription>
+                    <ListItem>
+                        <StyledLink onClick={handleChoiceDiary(n.id)}>
+                        <AccountImageCard backgroundImg={n.image}/>
+                        <ItemDescription>{n.title}</ItemDescription>
                         </StyledLink>
                     </ListItem>
-                )
-
     );
 
     
@@ -152,7 +146,7 @@ const AccountList = () => {
                     <ListItem>
                         <AccountCreateCard />
                     </ListItem>
-                    {renderList()}
+                    {renderList}
                 </CardList>
             </CardContainer>
             </AccountListContainer>

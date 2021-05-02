@@ -5,7 +5,7 @@ import {ReactComponent as LightLogo} from '../../assets/Images/MainLogoLight2.sv
 import styled from 'styled-components';
 import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import { MAIN_COLOR } from '../../assets/Colors/Color';
-import { UserDiarySearch } from '../../api/diary/diary';
+import { PostDiarySearch } from '../../api/post/post';
 import { WithDrawCheckAPI } from '../../api/account/account';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -97,6 +97,7 @@ const Main = () => {
     const userInfo = useSelector(state=>state.auth.currentToken);
     const DiaryInfo = useSelector(state=>state.diary.cureentDiaryID);
 
+    const [Userinfo, SetUserinfo] = useState({});
     const [Dataset, SetDataset] = useState([]);
     const RenderList = 
     Dataset.length > 0 &&
@@ -108,20 +109,21 @@ const Main = () => {
     const UserDiarycall = async () => {
         let data = [];
         const user = await WithDrawCheckAPI(userInfo);
-        console.log(user.data.user_id);
+        console.log(user.data);
+        SetUserinfo(user.data);
         try {
-           const response = await UserDiarySearch(user.data.id);
-           console.log(response.data.diary_list);
-           data = [...data, response.data.diary_list];
+           const response = await PostDiarySearch(DiaryInfo);
+           console.log(response.data);
+           data = [...data, response.data];
            SetDataset(data);
-           console.log(Dataset);
+
         } catch(err){
             console.log(err);
         }
     }
 
-    useEffect(async () => {
-        await UserDiarycall();
+    useEffect(() => {
+        UserDiarycall();
     }, []);
 
     return (
@@ -136,10 +138,12 @@ const Main = () => {
                     <Circle stroke = {MAIN_COLOR}></Circle>
                 </Test>
                 <SimpleSlider />
-
+                {DiaryInfo !== null ? 
+                <TextBox><SpanStyle>일기를 선택해주세요.</SpanStyle></TextBox> : 
+                <>
                 <TextBox>
                     <SpanStyle>
-                        
+                        {Userinfo.data.username}
                     </SpanStyle> 
                     추억들
                 </TextBox>
@@ -148,6 +152,8 @@ const Main = () => {
                         {RenderList} 
                     </ImgStyle>
                 </ListDiv>
+                </>
+                }   
             </MainDiv>
         </>
         }
