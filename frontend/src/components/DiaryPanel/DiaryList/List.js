@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { MAIN_COLOR, TEXT_BLACK } from '../../../assets/Colors/Color';
 import BackHeader from '../../HeaderPanel/BackHeader';
+import { useSelector } from 'react-redux';
 
 
 const StyledLink = styled(Link)`
@@ -163,6 +164,7 @@ const data = [
 
 export default function List() {
 
+    const userInfo = useSelector(state => state.auth.currentToken);
     const [DataMonth, SetDataMonth] = useState([]);
 
     const handleDiaryDetail = (id) => {
@@ -190,7 +192,8 @@ export default function List() {
     }
 
     return (
-        <>
+        <> 
+        {  userInfo == null ? <Redirect to='/' /> : <>
         <BackHeader />
         <ListContainer>
             <ListTitle>여러분의 발자취를 확인 해보세요.</ListTitle>
@@ -285,6 +288,8 @@ export default function List() {
                 </ContentBox>
             </ListBox>
         </ListContainer>
+        </>
+        }
         </>
     )
 }

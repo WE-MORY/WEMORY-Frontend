@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
+import {Redirect} from 'react-router-dom';
 import Header from '../HeaderPanel/Header';
 import {ReactComponent as LightLogo} from '../../assets/Images/MainLogoLight2.svg';
 import styled from 'styled-components';
 import {ReactComponent as Circle} from '../../assets/Images/circle.svg';
 import { MAIN_COLOR } from '../../assets/Colors/Color';
-
-
+import { UserDiarySearch } from '../../api/diary/diary';
+import { WithDrawCheckAPI } from '../../api/account/account';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SimpleSlider from './Slider';
+import { useSelector } from 'react-redux';
 // import Content from './Content';
 // import ContentBox from './Content';
 
@@ -80,16 +82,51 @@ const SpanStyle = styled.span`
     font-family: Spoqa-Medium;
     color: black;
     padding-right: 5px;
-
+    &#none_diary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 130px;
+        margin-left: 15%;
+        font-family: 'Cafe24';
+    }
 `
 
 const Main = () => {
-    const repeat = ['https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-                    'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-                    'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-                    'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg'];
-    const repeatLi = repeat.map((src, index)=> <img alt="사진이 안 떠요" width="120px" height="120px" key={index} src={src}/>);
+
+    const userInfo = useSelector(state=>state.auth.currentToken);
+    const DiaryInfo = useSelector(state=>state.diary.cureentDiaryID);
+
+    const [Dataset, SetDataset] = useState([]);
+    const RenderList = 
+    Dataset.length > 0 &&
+    Dataset.map(src=> 
+        src.map((item, i) => 
+            <img alt="사진이 안 떠요" width="120px" height="120px" key={i} src={item.image}/>
+    ));
+
+    const UserDiarycall = async () => {
+        let data = [];
+        const user = await WithDrawCheckAPI(userInfo);
+        console.log(user.data.user_id);
+        try {
+           const response = await UserDiarySearch(user.data.id);
+           console.log(response.data.diary_list);
+           data = [...data, response.data.diary_list];
+           SetDataset(data);
+           console.log(Dataset);
+        } catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(async () => {
+        await UserDiarycall();
+    }, []);
+
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
             <Header />
             
@@ -99,19 +136,22 @@ const Main = () => {
                     <Circle stroke = {MAIN_COLOR}></Circle>
                 </Test>
                 <SimpleSlider />
+
                 <TextBox>
                     <SpanStyle>
-                        옹이 키우기
+                        
                     </SpanStyle> 
                     추억들
                 </TextBox>
                 <ListDiv>
                     <ImgStyle>
-                        {repeatLi}
+                        {RenderList} 
                     </ImgStyle>
                 </ListDiv>
             </MainDiv>
         </>
+        }
+    </>
     );
 }
 

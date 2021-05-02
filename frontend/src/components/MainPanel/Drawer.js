@@ -9,6 +9,8 @@ import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Button from '../../assets/Button/Button';
+import { useDispatch } from 'react-redux';
+import {ClearToken} from '../../redux/actions/Auth_action';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -65,9 +67,17 @@ const useStyles = makeStyles({
 
 export default function Drawer({SideMenu}) {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [state, setState] = React.useState({
     left: false
   });
+
+
+  const handleLogout = () => {
+      dispatch(ClearToken());
+      
+  }
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -125,7 +135,7 @@ export default function Drawer({SideMenu}) {
         
       </List>
       <BtnDiv>
-        <Button Text={"로그아웃"} Width={"40vw"} Color={"#4B5364"}/>
+        <Button OnClick={handleLogout}Text={"로그아웃"} Width={"40vw"} Color={"#4B5364"}/>
       </BtnDiv>
 
     </div>

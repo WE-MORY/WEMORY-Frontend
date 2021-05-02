@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
+import {UserDiarySearch} from '../../../api/diary/diary';
+import {WithDrawCheckAPI} from '../../../api/account/account';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import { MAIN_COLOR } from '../../../assets/Colors/Color';
 import BackHeader from '../../HeaderPanel/BackHeader';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
+import {setCurrentDiaryID} from '../../../redux/actions/Diary_action';
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited{
+    color: #4B5364;
+  }
+`
 
 
 const AccountListContainer = styled.div`
@@ -72,52 +84,57 @@ const ItemDescription = styled.div`
 `;
 
 
-const TestDataURL = [
-    {
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트1"
-    },
-    {
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트2"
-    },
-    {
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트3"
-    },
-    {
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트4"
-    },
-    {
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트5"
-    }
-    ,{
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트6"
-    }
-    ,{
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트7"
-    }
-    ,{
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트8"
-    }
-    ,{
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트9"
-    }
-    ,{
-        ImgURL: 'https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg',
-        description: "테스트10"
-    }
-];
-
 const AccountList = () => {
 
+    const [Dataset, SetDataset] = useState([]);
+    const userInfo = useSelector(state=>state.auth.currentToken);
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const RenderDiaryList = async () => {
+        let data = [];
+        const user = await WithDrawCheckAPI(userInfo);
+        console.log(user.data.user_id);
+        try {
+           const response = await UserDiarySearch(user.data.user_id);
+           console.log(response.data.diary_list);
+           data = [...data, response.data.diary_list];
+           SetDataset(data);
+        //    console.log(Dataset);
+        } catch(err){
+            console.log(err);
+        }
+    }
+
+    const handleChoiceDiary = (diary_id) => {
+        dispatch(setCurrentDiaryID(diary_id));
+        history.push('/');
+    }
+
+    const renderList = () => 
+            Dataset.length > 0 &&
+            Dataset.map(n => 
+                    n.map((m, i )=> 
+                
+                    <ListItem key={i}>
+                        <StyledLink onClick={handleChoiceDiary(m.id)}>
+                        <AccountImageCard backgroundImg={m.image}/>
+                        <ItemDescription>{m.title}</ItemDescription>
+                        </StyledLink>
+                    </ListItem>
+                )
+
+    );
+
+    
+
+    useEffect(()=>{
+        RenderDiaryList();
+    },[])
+
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
         <BackHeader />
         <AccountListContainer>
@@ -127,7 +144,7 @@ const AccountList = () => {
             </PageDescription>
             <TitleContainer>
                 <TitleText>
-                    <strong>하유민</strong> 님의 일기장 계좌
+                    <strong></strong> 님의 일기장 계좌
                 </TitleText>
             </TitleContainer>
             <CardContainer>
@@ -135,13 +152,12 @@ const AccountList = () => {
                     <ListItem>
                         <AccountCreateCard />
                     </ListItem>
-                    <ListItem>
-                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
-                        <ItemDescription>통장 이름</ItemDescription>
-                    </ListItem>
+                    {renderList()}
                 </CardList>
             </CardContainer>
             </AccountListContainer>
+            </>
+            }
         </>
     );
 }

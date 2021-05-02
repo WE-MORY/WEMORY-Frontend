@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom';
 import Lottie from 'react-lottie';
 import piggy_bank from '../../assets/Lottie/piggy_bank.json';
 import { useHistory } from 'react-router-dom';
@@ -6,6 +7,9 @@ import styled from 'styled-components';
 import BackHeader from '../../components/HeaderPanel/BackHeader';
 import Button from '../../assets/Button/Button';
 import Input from '../../assets/Input/Input';
+
+import { GoalCreateAPI } from '../../api/goal/goal';
+import { useSelector } from 'react-redux';
 
 const PurPoseContainer = styled.div`
     display: flex;
@@ -62,14 +66,23 @@ const PurposeSetting = () => {
     const [title, SetTitle] = useState();
     const [money, SetMoney] = useState();
     
+    const userInfo= useSelector(state=>state.auth.currentToken);
     const history = useHistory();
     
-    const handleSubmitSetting = (e) => {
+    const handleSubmitSetting = async (e) => {
         e.preventDefault();
-        // 목표 설정 생성 API (title/money)
-        history.push('/');
+        try{
+            const response = await GoalCreateAPI(money, title,  '1');
+            alert("목표가 생성 되었습니다.");
+            history.push('/');
+        } catch(err){
+            alert(err);
+        }
+        // 목표 설정 생성 API (title/money) 
     } 
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
         <BackHeader />
         <PurPoseContainer>
@@ -81,6 +94,8 @@ const PurposeSetting = () => {
             <Input Type="text" OnChange={(e)=>{SetMoney(e.target.value)}} value={money} Hint="목표 금액을 설정해주세요." Width="70%"/>
             <Button OnClick={handleSubmitSetting} Text="설정하기" />     
         </PurPoseContainer>
+        </>
+        }
         </>
     );
 }

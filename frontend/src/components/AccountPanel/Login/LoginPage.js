@@ -91,7 +91,7 @@ const LoginPage = () => {
         SetisLoading(true); // 로그인 중
         try {
             const response = await TokenAPI(ID, PW);
-            console.log(response)   
+            console.log(response.data)   
             const userToken = response.data.token;
             dispatch(setCurrentAuthToken(userToken));
             history.push('/accountwithdraw');       

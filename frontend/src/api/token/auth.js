@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {instance} from '../ServerURL';
 
 // Token 발급 API 
