@@ -1,22 +1,11 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import {ReactComponent as Calendar} from '../../assets/Images/calendar.svg';
 import Drawer from '../MainPanel/Drawer';
 
 const MenuStyle = styled.div`
     position: absolute;
     top: 3vh;
     left: 5vw;
-    &:hover{
-        cursor: pointer;
-    }
-`
-
-const CalendarStyle = styled.div `
-    position: absolute;
-    top: 3vh;
-    right: 5vw;
-
     &:hover{
         cursor: pointer;
     }
@@ -44,10 +33,6 @@ const Header = () => {
                 <MenuStyle>
                     <Drawer />
                 </MenuStyle>
-
-                <CalendarStyle>
-                    <Calendar width="25" height="25"/>
-                </CalendarStyle>
             </HeaderPanel>
         </>
     );
