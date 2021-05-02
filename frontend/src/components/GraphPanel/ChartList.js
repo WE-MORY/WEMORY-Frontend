@@ -182,7 +182,6 @@ const ChartList = () => {
 
     const [DataSet, SetDataSet] = useState([]);   
     const userInfo = useSelector(state=>state.auth.currentToken);
-
     return (
         <>
         { userInfo == null ? <Redirect to='/login' /> :
