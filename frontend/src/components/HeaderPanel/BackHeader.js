@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-// import {useHistory} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
 import {ReactComponent as BackBtn} from '../../assets/Images/backbtn.svg';
 
 const HeaderDiv = styled.div`
@@ -17,17 +17,16 @@ const BtnStyle = styled.div`
 
 
 export default function BackHeader() {
-    // const History = ({history}) => {
-    //     const goBack = () => {
-    //         history.goBack();
-    //     }
-
-    // }
+    const history = useHistory()
+    const Back = () => {
+        history.goBack()
+    }
+    
     return (
         <>
             <HeaderDiv>
                 <BtnStyle>
-                    <BackBtn width="20" height="20"/>
+                    <BackBtn onClick={Back} width="20" height="20"/>
                 </BtnStyle>
             </HeaderDiv>
         </>

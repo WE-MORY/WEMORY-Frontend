@@ -91,14 +91,13 @@ export default function Drawer({SideMenu}) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
 
-        <ProfileDiv>
-            <ImgDiv />
-              <ProfileTextDiv>
-                <Name>하유민</Name>
-              </ProfileTextDiv>
-        </ProfileDiv>
+      <ProfileDiv>
+          <ImgDiv />
+            <ProfileTextDiv>
+              <Name>하유민</Name>
+            </ProfileTextDiv>
+      </ProfileDiv>
       <List>
-        
         <ListItem>
           <ListItemText>
             <StyledLink to="/diarylist">
@@ -110,6 +109,13 @@ export default function Drawer({SideMenu}) {
           <ListItemText>
             <StyledLink to="/purpose">
               목표 설정
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/accountlist">
+              입금 계좌 변경
             </StyledLink>
           </ListItemText>
         </ListItem>
