@@ -43,7 +43,7 @@ const TextBox =  styled.div`
     text-align: left;
     font-family: 'Spoqa-Regular';
     font-size: 1.5rem;
-    margin: 10vh 0 5vh 0 ;
+    margin: 10vh 0 2vh -8vw ;
     padding-top: 5vh;
     width: 85vw;
 `
@@ -103,7 +103,7 @@ const Main = () => {
                     <SpanStyle>
                         옹이 키우기
                     </SpanStyle> 
-                    일기의 추억들
+                    추억들
                 </TextBox>
                 <ListDiv>
                     <ImgStyle>

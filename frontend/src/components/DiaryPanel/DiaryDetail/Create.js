@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
 import {useState} from 'react'
 import TransitionsModal from './Modal'
 
+
+const ImgBox = styled.button`
+    width: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    /* border: 1px solid black; */
+    /* border-radius: 30px; */
+    background-color: white;
+    background: url(${props=>props.Imgsrc}) no-repeat;
+    background-size: cover;
+    z-index: 10;
+`
 
 const MainDiv = styled.div`
     display: flex; 
@@ -13,6 +25,11 @@ const MainDiv = styled.div`
 
     button {
         margin: 5vh 0;
+    }
+
+    span {
+        font-size: 1.5rem;
+        opacity: .5;
     }    
 `
 
@@ -76,8 +93,23 @@ const ImgStyle = styled.img`
 `
 
 export default function Create() {
-    const [imgBase, setimgBase] = useState("");
-    const [imgFile, setimgFile] = useState(null);
+
+    const InputRef = useRef(null); // Input file DOM 가르키기
+    // const history = useHistory();
+
+    const [imgURL, SetimgURL] = useState("");
+    const [imgFile, SetimgFile] = useState(null);
+
+    // const [accountnumber, Setaccountnumber] = useState('');
+    // const [accountTitle, SetaccountTitle] = useState('');
+
+
+
+
+    const handleSelectImg = (e) => {
+        e.preventDefault();
+        InputRef.current.click();
+    }
 
     const handleChangeFile = (event) => {
         let reader = new FileReader();
@@ -89,16 +121,38 @@ export default function Create() {
             // base 가 true 인 경우 
             if (base) {
                 // state 업데이트
-                setimgBase(base.toString()); 
-                
+                SetimgURL(base.toString()); 
             } 
         }
         // 업로드 된 파일이 한 개라서 인덱스 0 
         if (event.target.files[0]){
             reader.readAsDataURL(event.target.files[0])
-            setimgFile(event.target.files[0]);
+            SetimgFile(event.target.files[0]);
         }
     }
+    // const [imgBase, setimgBase] = useState("");
+    // const [imgFile, setimgFile] = useState(null);
+
+    // const handleChangeFile = (event) => {
+    //     let reader = new FileReader();
+
+    //     // 파일이 다 올라왔으면 실행 
+    //     reader.onload = () => {
+    //         // reader 에서 가져온 이미지 base 에 저장 
+    //         const base = reader.result;
+    //         // base 가 true 인 경우 
+    //         if (base) {
+    //             // state 업데이트
+    //             setimgBase(base.toString()); 
+                
+    //         } 
+    //     }
+    //     // 업로드 된 파일이 한 개라서 인덱스 0 
+    //     if (event.target.files[0]){
+    //         reader.readAsDataURL(event.target.files[0])
+    //         setimgFile(event.target.files[0]);
+    //     }
+    // }
 
 
     const date = new Date();
@@ -130,9 +184,11 @@ export default function Create() {
 
         <MainDiv>
             <DateDiv>{year} . {month} . {day}  ({daily()})</DateDiv>
-            <ImgStyle src={imgBase} alt="+"/>
-            <PicLabel for="imgFile" >이 곳을 클릭해 사진을 첨부하세요.</PicLabel>
-            <PicInput name = "imgFile" type="file" id="imgFile" onChange={handleChangeFile}/>
+            <ImgBox Imgsrc={imgURL} onClick={handleSelectImg}>
+                <span>터치해서 사진을 첨부하세요. </span>
+            </ImgBox>
+            {/* <PicLabel for="imgFile" >이 곳을 클릭해 사진을 첨부하세요.</PicLabel> */}
+            <PicInput ref={InputRef} id="imgFile" type="file"  accept="image/png, image/jpeg"  onChange={handleChangeFile}/>
             <div>
                 <TextInput />
                 <TextInput />
