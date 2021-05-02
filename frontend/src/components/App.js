@@ -30,7 +30,6 @@ import AccountList from './AccountPanel/Account/AccountList';
 import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
 import AccountDeposit from './AccountPanel/Account/AccountDeposit';
 
-import CalendarList from './CalendarPanel/CalendarList';
 import ChartList from './GraphPanel/ChartList';
 import purposeSetting from './purposePanel/PurposeSetting';
 
@@ -115,8 +114,7 @@ const App = () => {
             <Route exact path='/accountwithdraw' component={AccountWithDraw} />
             <Route exact path='/accountdeposit' component={AccountDeposit} /> 
             <Route exact path='/accountlist' component={AccountList} />
-            {/* 캘린더/차트 */}
-            <Route exact path='/calendarlist' component={CalendarList} /> 
+            {/* 차트 */} 
             <Route exact path='/chartlist' component={ChartList} />
             {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
             <Route exact path = '/diarylist' component={List} />
