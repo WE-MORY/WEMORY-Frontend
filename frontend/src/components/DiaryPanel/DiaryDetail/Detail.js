@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
 
@@ -50,8 +52,12 @@ const Description = styled.span`
 `
 
 export default function Create() {
-    
+
+    const userInfo = useSelector(state => state.auth.currentToken);
+
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
         <BackHeader />
 
@@ -66,6 +72,8 @@ export default function Create() {
                 <Description>여기는 설명이 나오는 부분입니다.</Description>
             </TextDiv>
         </MainDiv>
+        </>
+        }
         </>
     )
 }
