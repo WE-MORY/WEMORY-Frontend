@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { MAIN_COLOR } from '../../../assets/Colors/Color';
-import Header from '../../HeaderPanel/Header';
+import BackHeader from '../../HeaderPanel/Header';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
 
 
@@ -120,12 +120,8 @@ const AccountList = () => {
 
     return (
         <>
-            <Header />
-            <AccountListContainer>
-            <PageDescription>
-                여러분들의 추억이 담을 일기를 만들어보세요.
-                <strong>일기를 클릭하면 선택됩니다.</strong>
-            </PageDescription>
+        <AccountListContainer>
+            <BackHeader />
             <TitleContainer>
                 <TitleText>
                     <strong>하유민</strong> 님의 일기장 계좌

@@ -5,6 +5,7 @@ import Button from '../../../assets/Button/Button';
 import { MAIN_COLOR, TEXT_WHITE } from '../../../assets/Colors/Color';
 import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg'
 import Input from '../../../assets/Input/Input';
+import BackHeader from '../../HeaderPanel/BackHeader';
 
 const DepositContainer = styled.div`
     display: flex;
@@ -141,22 +142,25 @@ const AccountDeposit = () => {
     
 
     return (
-        <DepositContainer>
-            <LogoContainer>
-                <MainLogo width="100%" height="100%"/>
-                <LogoTitle>추억을 쌓는 통장 이야기</LogoTitle>
-            </LogoContainer>
-            <SelectImgBox Imgsrc={imgURL} onClick={handleSelectImg}>
-                <span><strong>CLICK</strong> <br/>통장 일기 커버를 등록하세요!</span>
-            </SelectImgBox>
-            <LogoTitle id='description'>통장 일기로 등록 할 계좌를 입력해주세요.</LogoTitle>
-            <InputFile ref={InputRef} type="file" onChange={handleChangeFile} accept="image/png, image/jpeg" />
-            {/* Test용 우리은행만 지정 */}
-            <Input Type="text" Width="70%" Value="우리은행"/>
-            <Input Type="text" Width="70%" Hint="계좌 번호를 입력하세요."/>
-            <Input Type="text" Width="70%" Hint="일기 별칭을 지어주세요."/>
-            <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
-        </DepositContainer>
+        <>
+        <BackHeader />
+            <DepositContainer>
+                <LogoContainer>
+                    <MainLogo width="100%" height="100%"/>
+                    <LogoTitle>추억을 쌓는 통장 이야기</LogoTitle>
+                </LogoContainer>
+                <SelectImgBox Imgsrc={imgURL} onClick={handleSelectImg}>
+                    <span><strong>CLICK</strong> <br/>통장 일기 커버를 등록하세요!</span>
+                </SelectImgBox>
+                <LogoTitle id='description'>통장 일기로 등록 할 계좌를 입력해주세요.</LogoTitle>
+                <InputFile ref={InputRef} type="file" onChange={handleChangeFile} accept="image/png, image/jpeg" />
+                {/* Test용 우리은행만 지정 */}
+                <Input Type="text" Width="70%" Value="우리은행"/>
+                <Input Type="text" Width="70%" Hint="계좌 번호를 입력하세요."/>
+                <Input Type="text" Width="70%" Hint="일기 별칭을 지어주세요."/>
+                <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
+            </DepositContainer>
+        </>
     );
 }
 
