@@ -128,7 +128,8 @@ const Signup = () => {
 
     const handleAuthPhone = async (e) =>{
         e.preventDefault();
-        const response = await PhoneAuthAPI();
+        const response = await PhoneAuthAPI();  
+        console.log(response);
         const AUTH_TOKEN = response.data.dataBody.CRTF_UNQ_NO;
         SetIsClick(true);
         inputRef.current.value = AUTH_TOKEN;

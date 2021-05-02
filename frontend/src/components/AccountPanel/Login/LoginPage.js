@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentAuthToken } from '../../../redux/actions/Auth_action';
 
 import styled from 'styled-components';
@@ -10,6 +10,7 @@ import { SUB_COLOR } from '../../../assets/Colors/Color';
 import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg';
 
 import { TokenAPI } from '../../../api/token/auth';
+import { WithDrawCheckAPI } from '../../../api/account/account';
 import Loader from '../../LoaderPanel/Loader';
 
 const LoginContainer = styled.div`
@@ -75,6 +76,7 @@ const LoginPage = () => {
     const [ID, SetID] = useState("");
     const [PW, SetPW] = useState("");
     const [isLoading, SetisLoading] = useState(false);
+    const user_auth = useSelector(state => state.auth.currentToken);
 
     const handleIDchange = (e) => {
         SetID(e.target.value);
@@ -91,10 +93,8 @@ const LoginPage = () => {
             const response = await TokenAPI(ID, PW);
             console.log(response)   
             const userToken = response.data.token;
-            // userToken Redux State 저장
             dispatch(setCurrentAuthToken(userToken));
-            history.push('/');
-            
+            history.push('/accountwithdraw');       
         } catch (err) {
             const msg = err.response.data.message
             alert(msg);

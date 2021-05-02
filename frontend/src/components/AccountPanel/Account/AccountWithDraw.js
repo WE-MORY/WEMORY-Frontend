@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { WithDrawCheckAPI } from '../../../api/account/account';
+import { AccountCreateAPI } from '../../../api/account/account';
 import Button from '../../../assets/Button/Button';
 import { MAIN_COLOR } from '../../../assets/Colors/Color';
 
@@ -68,13 +71,30 @@ const LogoContainer = styled.div`
 const AccountWithDraw = () => {
 
     const history = useHistory();
-
+    const Token = useSelector(state => state.auth.currentToken);
     const [AccountNumber, SetAccountNumber] = useState('');
 
-    const handleAddAccount = () => {
+    const handleAddAccount = async () => {
         // 출금계좌 생성 API 적용 후 => 메인으로 이동
-        history.push('/');
+        try{
+            const response = await AccountCreateAPI(AccountNumber);
+            history.push('/');
+        } catch(err){
+            alert(err.response.message);
+        }
     }
+
+    const handleAuthToken = async () =>{
+       const response = await WithDrawCheckAPI(Token);
+       console.log(response.data.account_num);
+       if(response.data.account_num !== ''){
+            history.push('/');
+       }
+    }
+
+    useEffect(()=>{
+        handleAuthToken();
+    }, [])
 
     return (
         <WithDrawContainer>

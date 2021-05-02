@@ -1,5 +1,6 @@
-import axios from 'axios';
-import {SERVER_URL} from '../ServerURL';
+import {instance} from '../ServerURL';
 
-const API = axios.create();
-
+const accountCreateAPI = (num, bank) => instance.post('/api2/accounts/',{
+    "account_num":num,
+    "bank":"우리은행"
+});
