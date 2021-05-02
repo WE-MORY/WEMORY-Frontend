@@ -38,7 +38,6 @@ const HeaderPanel = styled.div`
     `
 
 const Header = () => {
-
     return (
         <>  
             <HeaderPanel>

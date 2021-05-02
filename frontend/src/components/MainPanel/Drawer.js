@@ -108,14 +108,7 @@ export default function Drawer({SideMenu}) {
         </ListItem>
         <ListItem>
           <ListItemText>
-            <StyledLink to="/">
-              목표 설정
-            </StyledLink>
-          </ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemText>
-            <StyledLink to="/">
+            <StyledLink to="/purpose">
               목표 설정
             </StyledLink>
           </ListItemText>
