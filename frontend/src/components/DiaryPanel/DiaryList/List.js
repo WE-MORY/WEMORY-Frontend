@@ -7,6 +7,15 @@ import BackHeader from '../../HeaderPanel/BackHeader';
 import LinkAsset from '../../../assets/StyledLink/StyledLink';
 
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited{
+    color: #4B5364;
+  }
+`
+
+
 const ListContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -86,8 +95,10 @@ const SubTitle = styled.p`
 const BoxContent = styled.p`
     font-family: 'Cafe24';
     height: 50%;
+    width: 60vw;
     font-size: 1.2rem;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 `;
 
@@ -189,28 +200,28 @@ export default function List() {
             <ListBox>
                 <LineText>5월 - 180,000원</LineText>
                 첫 번째 
-                <LinkAsset to="/diarydetail">
+                <StyledLink to="/diarydetail">
                     <ContentBox onClick={ListRenderingBox}>
                         <ImgBox>
                             <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />
                         </ImgBox>
                         <TextBox>
                             <SubTitle>귀여운 고양이</SubTitle>
-                            <BoxContent>alaal</BoxContent>
+                            <BoxContent>귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이</BoxContent>
                             <FooterContent>
                                 <DatetimeText>5. 23</DatetimeText>
                                 <PostMoneyText>+60,000원</PostMoneyText>
                             </FooterContent>
                         </TextBox>
                     </ContentBox>
-                </LinkAsset>
+                </StyledLink>
                 <ContentBox>
                     <ImgBox>
                         <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />
                     </ImgBox>
                     <TextBox>
                         <SubTitle>귀여운 고양이</SubTitle>
-                        <BoxContent>sdfsdfsdf</BoxContent>
+                        <BoxContent>귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이귀여운 고양이</BoxContent>
                         <FooterContent>
                             <DatetimeText>5. 23</DatetimeText>
                             <PostMoneyText>+60,000원</PostMoneyText>
