@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import BackHeader from '../../HeaderPanel/BackHeader';
+import { MAIN_COLOR } from '../../../assets/Colors/Color';
+import BackHeader from '../../HeaderPanel/Header';
 import {AccountCreateCard, AccountImageCard} from './AccountCard';
+
+
+const AccountListContainer = styled.div`
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+`;
+
+const PageDescription = styled.p`
+    font-family: 'Cafe24';
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    height: 150px;
+    strong{
+        font-size: 1.2rem;
+        color: ${MAIN_COLOR};
+    }
+`;
+
 
 const TitleContainer = styled.div`
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 50px;
 `;
 
 const TitleText = styled.h1`
-    font-size: 2rem;
+    font-size: 1.2rem;
     width: 80%;
     margin: 0 auto;
     
     strong{
-        font-size: 2.2rem;
+        font-size: 1.5rem;
         font-family: 'Spoqa-Regular';
     }
 `;
@@ -91,8 +117,10 @@ const TestDataURL = [
 ];
 
 const AccountList = () => {
+
     return (
         <>
+        <AccountListContainer>
             <BackHeader />
             <TitleContainer>
                 <TitleText>
@@ -122,6 +150,7 @@ const AccountList = () => {
                     </ListItem>
                 </CardList>
             </CardContainer>
+            </AccountListContainer>
         </>
     );
 }

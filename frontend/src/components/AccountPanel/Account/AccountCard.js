@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
+import { ReactComponent as PlusBtn } from '../../../assets/Images/plus.svg';
 
 
 import {MAIN_COLOR, TEXT_WHITE} from '../../../assets/Colors/Color'
@@ -14,6 +15,10 @@ const CardContainer = styled.div`
     text-shadow: 1px 2px 3px #000;
     &#create{
         border: 1px solid ${MAIN_COLOR};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: ${MAIN_COLOR};
         :active{
             transition: 0.15s;
             background-color: ${MAIN_COLOR};
@@ -33,7 +38,11 @@ const AccountImageCard = (props) => {
 
 const AccountCreateCard = () => {
     const history = useHistory();
-    return <CardContainer onClick={()=>history.push('/')} id='create' /> 
+    return (
+        <CardContainer onClick={()=>history.push('/accountdeposit')} id='create'>
+            <PlusBtn width={24} height={24}/>
+        </CardContainer>
+    ) 
 }
 
 
