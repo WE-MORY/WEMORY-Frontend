@@ -37,7 +37,7 @@ const ContentDiv = styled.div`
 `
 const TextBox =  styled.div`
     text-align: left;
-    font-family: 'Spoca-Regular';
+    font-family: 'Spoqa-Regular';
     font-size: 1.5rem;
     margin: 10vh 0 5vh 0 ;
     width: 85vw;
