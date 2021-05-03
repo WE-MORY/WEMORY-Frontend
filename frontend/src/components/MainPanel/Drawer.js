@@ -100,21 +100,21 @@ export default function Drawer({SideMenu}) {
       <ProfileDiv>
           <ImgDiv />
             <ProfileTextDiv>
-              <Name>하유민</Name>
+              <Name>최민석</Name>
             </ProfileTextDiv>
       </ProfileDiv>
       <List>
       <ListItem>
           <ListItemText>
             <StyledLink to="/">
-              MAIN
+              메인 화면 가기
             </StyledLink>
           </ListItemText>
         </ListItem>
         <ListItem>
           <ListItemText>
             <StyledLink to="/diarylist">
-              입금 일기장
+              입금 일기장 보기
             </StyledLink>
           </ListItemText>
         </ListItem>
@@ -128,7 +128,14 @@ export default function Drawer({SideMenu}) {
         <ListItem>
           <ListItemText>
             <StyledLink to="/accountlist">
-              입금 계좌 변경
+              일기(계좌) 변경
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/chartlist">
+              월별 그래프 보기
             </StyledLink>
           </ListItemText>
         </ListItem>

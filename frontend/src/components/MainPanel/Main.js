@@ -97,7 +97,7 @@ const Main = () => {
     const userInfo = useSelector(state=>state.auth.currentToken);
     const DiaryInfo = useSelector(state=>state.diary.cureentDiaryID);
 
-    const [Userinfo, SetUserinfo] = useState({});
+    const [Userinfo, SetUserinfo] = useState();
     const [Dataset, SetDataset] = useState([]);
     const RenderList = 
     Dataset.length > 0 &&
@@ -138,18 +138,25 @@ const Main = () => {
                     <Circle stroke = {MAIN_COLOR}></Circle>
                 </Test>
                 <SimpleSlider />
-                {DiaryInfo !== null ? 
+                { DiaryInfo > 0 ? 
                 <TextBox><SpanStyle>일기를 선택해주세요.</SpanStyle></TextBox> : 
                 <>
                 <TextBox>
                     <SpanStyle>
-                        {Userinfo.data.username}
+                        하옹이 밥 사주기
                     </SpanStyle> 
                     추억들
                 </TextBox>
                 <ListDiv>
                     <ImgStyle>
-                        {RenderList} 
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_03.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_02.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_04.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_05.png"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_06.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_07.jpg"/>
+                        <img alt="사진이 안 떠요" width="120px" height="120px" src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788.jpg"/>
                     </ImgStyle>
                 </ListDiv>
                 </>
