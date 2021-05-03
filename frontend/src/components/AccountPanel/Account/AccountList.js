@@ -87,19 +87,19 @@ const ItemDescription = styled.div`
 const AccountList = () => {
 
     const [Dataset, SetDataset] = useState([]);
+    const [User, SetUser] = useState(null);
     const userInfo = useSelector(state=>state.auth.currentToken);
     const diaryID = useSelector(state=>state.diary.currentDiaryID);
     const dispatch = useDispatch();
     const history = useHistory();
 
+    
     const RenderDiaryList = async () => {
-        let data = [];
         const user = await WithDrawCheckAPI(userInfo);
-        console.log(user.data.id);
+        SetUser(user);
         try {
            const response = await UserDiarySearch(user.data.id);
-           data = response.data.diary_list;
-           console.log(data);
+
         } catch(err){
             console.log(err);
         }
@@ -107,23 +107,25 @@ const AccountList = () => {
 
     const handleChoiceDiary = (diary_id) => {
         dispatch(setCurrentDiaryID(diary_id));
+        history.push('/');
     }
 
-    const renderList = 
-            Dataset.length > 0 &&
-            Dataset.map(n => 
-                    <ListItem>
-                        <StyledLink onClick={handleChoiceDiary(n.id)}>
-                        <AccountImageCard backgroundImg={n.image}/>
-                        <ItemDescription>{n.title}</ItemDescription>
-                        </StyledLink>
-                    </ListItem>
-    );
+//     const renderList = () =>{
+//             Dataset.length > 0 &&
+//             Dataset.map(n => 
+//                 n.map(m => 
+//                     <ListItem>
+//                         <StyledLink onClick={handleChoiceDiary(m.id)}>
+//                         <AccountImageCard backgroundImg={m.image}/>
+//                         <ItemDescription>{m.title}</ItemDescription>
+//                         </StyledLink>
+//                     </ListItem>
+//   ))};
 
     
 
     useEffect(()=>{
-        RenderDiaryList();
+        // RenderDiaryList();
     },[])
 
     return (
@@ -138,7 +140,7 @@ const AccountList = () => {
             </PageDescription>
             <TitleContainer>
                 <TitleText>
-                    <strong></strong> 님의 일기장 계좌
+                    <strong>{userInfo.name}</strong> 님의 일기장 계좌
                 </TitleText>
             </TitleContainer>
             <CardContainer>
@@ -146,7 +148,30 @@ const AccountList = () => {
                     <ListItem>
                         <AccountCreateCard />
                     </ListItem>
-                    {renderList}
+                    <ListItem>
+                        <StyledLink onClick={()=>handleChoiceDiary(2)}>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/html2.png"/>
+                        <ItemDescription>HTML 후원하기</ItemDescription>
+                        </StyledLink>
+                    </ListItem>
+                    <ListItem>
+                        <StyledLink onClick={()=>handleChoiceDiary(3)}>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/css1.png"/>
+                        <ItemDescription>HTML 후원하기</ItemDescription>
+                        </StyledLink>
+                    </ListItem>
+                    <ListItem>
+                        <StyledLink onClick={()=>handleChoiceDiary(4)}>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/css1.png"/>
+                        <ItemDescription>CSS 교재 돈 모으기</ItemDescription>
+                        </StyledLink>
+                    </ListItem>
+                    <ListItem>
+                        <StyledLink onClick={()=>handleChoiceDiary(6)}>
+                        <AccountImageCard backgroundImg="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/cat1.png"/>
+                        <ItemDescription>옹이 생일 선물 사주기</ItemDescription>
+                        </StyledLink>
+                    </ListItem>
                 </CardList>
             </CardContainer>
             </AccountListContainer>

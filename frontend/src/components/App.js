@@ -118,8 +118,8 @@ const App = () => {
             <Route exact path='/chartlist' component={ChartList} />
             {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
             <Route exact path = '/diarylist' component={List} />
-            <Route exact path = '/diarydetail/:post_id' component={Detail} />
-            <Route exact path = '/diarycreate/:user_id/:diary_id' component={Create} />
+            <Route exact path = '/diarydetail' component={Detail} />
+            <Route exact path = '/diarycreate' component={Create} />
             {/* 유저 로그인/회원가입 페이지 */}
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={Signup} />

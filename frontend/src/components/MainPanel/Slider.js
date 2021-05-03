@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import styled from 'styled-components';
 import Button from '../../assets/Button/Button';
 import Goal from '../../assets/Lottie/goal.json';
+import {useSelector} from 'react-redux';
 
 const defaultOptions = {
     loop: true,
@@ -99,10 +100,9 @@ const GoalBtn = styled.button`
     }
 `
 
-
-
 export default class SimpleSlider extends Component {
   render() {
+
     const settings = {
     //   dots: true,
       infinite: true,

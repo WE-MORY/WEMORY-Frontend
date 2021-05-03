@@ -202,6 +202,7 @@ const ChartList = () => {
                 </LineChart>
                 <ChartDescription>
                     {/* Sort하여 가장 많이 적금한 날 출력! */}
+                    
                 </ChartDescription>
             </ChartListContainer>
             </>
