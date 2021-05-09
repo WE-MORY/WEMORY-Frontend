@@ -1,5 +1,8 @@
 # 🏡 WEMORY-Frontend
 
+## WEMORY 추억을 기록하는 일기장
+- 프로젝트 블루아워 우리은행 온(on)택트 해커톤 장려상 수상
+
 WE-MORY Frontend
 
 ## 🖥 서버 실행법
