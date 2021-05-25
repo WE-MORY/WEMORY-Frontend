@@ -1,9 +1,34 @@
 # 🏡 WEMORY-Frontend
 
 ## WEMORY 추억을 기록하는 일기장
+
 - 프로젝트 블루아워 우리은행 온(on)택트 해커톤 장려상 수상
 
-WE-MORY Frontend
+## 💻 DEMO
+
+### 회원가입/메인/일기리스트
+
+<span>
+  <img src="./DEMO/Wemory_회원가입.gif" width="240px" />
+</span>
+
+<span>
+  <img src="./DEMO/Wemory_메인.gif" width="240px" />
+</span>
+
+<span>
+  <img src="./DEMO/Wemory_일기리스트.gif" width="240px" />
+</span>
+
+### 출금계좌 등록/출금 그래프
+
+<span>
+  <img src="./DEMO/Wemory_출금계좌등록.gif" width="240px" />
+</span>
+
+<span>
+  <img src="./DEMO/Wemory_출금그래프.gif" width="240px" />
+</span>
 
 ## 🖥 서버 실행법
 
@@ -28,8 +53,8 @@ WE-MORY Frontend
 ## 🔨Tech Stack
 
 - ReactJS
-- Redux-saga
+- Redux-devtools-extension
 - Redux-thunk
-- Styled-components (CSS-in-JS)
+- styled-components (CSS-in-JS)
 - Axios
 - React Hooks
