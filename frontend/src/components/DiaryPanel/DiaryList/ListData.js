@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 // import styled from 'styled-components';
 import { DiaryListAPI } from '../../../api/diary/diary';
+import ListDataStyle from './ListDataStyle';
 
-function ListBox() {
+function ListData() {
     const [lists, setLists] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -27,10 +28,10 @@ function ListBox() {
     if (loading) return (<p>로딩 중이지롱</p>);
     if (error) return (<p>에러지롱</p>)
     return (
-        <div>
-            {lists}
-        </div>
+        <ListData>
+            <ListDataStyle />
+        </ListData>
     )
 }
 
-export default ListBox
+export default ListData

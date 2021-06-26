@@ -193,104 +193,15 @@ export default function List() {
     }
 
     return (
-        <> 
-        {  userInfo == null ? <Redirect to='/' /> : <>
+        // <> 
+        // {  userInfo == null ? <Redirect to='/' /> : 
+        <>
         <BackHeader />
         <ListContainer>
             <ListTitle>여러분의 발자취를 확인 해보세요.</ListTitle>
             <ListSubTitle><strong>Click</strong>시, 일기 내용을 볼 수 있어요.</ListSubTitle>
             {/* DataSet Form */}
-            <ListBox>
-                <LineText>5월 - 180,000원</LineText>
-                <StyledLink to="/diarydetail">
-                    <ContentBox onClick={ListRenderingBox}>
-                        <ImgBox>
-                            <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" />
-                        </ImgBox>
-                        <TextBox>
-                            <SubTitle>옹이 생일</SubTitle>
-                            <BoxContent>간식 대신 스테이크 사줘야지~</BoxContent>
-                            <FooterContent>
-                                <DatetimeText>5. 3</DatetimeText>
-                                <PostMoneyText>+10,000원</PostMoneyText>
-                            </FooterContent>
-                        </TextBox>
-                    </ContentBox>
-                </StyledLink>
-                <StyledLink to="/diarydetail">
-                    <ContentBox onClick={ListRenderingBox}>
-                        <ImgBox>
-                            <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788.jpg" />
-                        </ImgBox>
-                        <TextBox>
-                            <SubTitle>옹이는 사랑스럽고 귀엽다.</SubTitle>
-                            <BoxContent> 귀여워서 돈을 저축했다! </BoxContent>
-                            <FooterContent>
-                                <DatetimeText>5. 3</DatetimeText>
-                                <PostMoneyText>+10,000원</PostMoneyText>
-                            </FooterContent>
-                        </TextBox>
-                    </ContentBox>
-                </StyledLink>
-                <StyledLink to="/diarydetail">
-                    <ContentBox onClick={ListRenderingBox}>
-                        <ImgBox>
-                            <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_01.jpg" />
-                        </ImgBox>
-                        <TextBox>
-                            <SubTitle>옹이 짤방 만들기</SubTitle>
-                            <BoxContent>기념비적인 날이다.</BoxContent>
-                            <FooterContent>
-                                <DatetimeText>5. 2</DatetimeText>
-                                <PostMoneyText>+30,000원</PostMoneyText>
-                            </FooterContent>
-                        </TextBox>
-                    </ContentBox>
-                </StyledLink>
-                <StyledLink to="/diarydetail">
-                    <ContentBox onClick={ListRenderingBox}>
-                        <ImgBox>
-                            <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_02.jpg" />
-                        </ImgBox>
-                        <TextBox>
-                            <SubTitle>옹이가 2살 되기 직전!</SubTitle>
-                            <BoxContent>몸 크기는 건장한 청년이라 밥 많이 먹으라고 저축</BoxContent>
-                            <FooterContent>
-                                <DatetimeText>5. 2</DatetimeText>
-                                <PostMoneyText>+15,000원</PostMoneyText>
-                            </FooterContent>
-                        </TextBox>
-                    </ContentBox>
-                </StyledLink>
-                <StyledLink to="/diarydetail">
-                <ContentBox>
-                    <ImgBox>
-                        <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_03.jpg" />
-                    </ImgBox>
-                    <TextBox>
-                        <SubTitle>봄이 하품 한 날</SubTitle>
-                        <BoxContent>날 잡아먹을 것 같아서 돈으로 매수!</BoxContent>
-                        <FooterContent>
-                            <DatetimeText>5. 1</DatetimeText>
-                            <PostMoneyText>+20,000원</PostMoneyText>
-                        </FooterContent>
-                    </TextBox>
-                </ContentBox>
-                </StyledLink>
-                <ContentBox>
-                    <ImgBox>
-                        <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_04.jpg" />
-                    </ImgBox>
-                    <TextBox>
-                        <SubTitle>멍때리는 밈미</SubTitle>
-                        <BoxContent>귀여워서 만 원 더 저축했다.</BoxContent>
-                        <FooterContent>
-                            <DatetimeText>5. 1</DatetimeText>
-                            <PostMoneyText>+10,000원</PostMoneyText>
-                        </FooterContent>
-                    </TextBox>
-                </ContentBox>
-            </ListBox>
+            
             {/* -------------- */}
             <ListBox>
                 <LineText>4월 - 12,500원</LineText>
@@ -307,36 +218,10 @@ export default function List() {
                         </FooterContent>
                     </TextBox>
                 </ContentBox>
-                <ContentBox>
-                    <ImgBox>
-                        <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_06.jpg" />
-                    </ImgBox>
-                    <TextBox>
-                        <SubTitle>손수건 사주고 싶다</SubTitle>
-                        <BoxContent>손수건 사주려고 2500원</BoxContent>
-                        <FooterContent>
-                            <DatetimeText>4. 27</DatetimeText>
-                            <PostMoneyText>+2,500원</PostMoneyText>
-                        </FooterContent>
-                    </TextBox>
-                </ContentBox>
-                <ContentBox>
-                    <ImgBox>
-                        <Img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20210503_070111788_07.jpg" />
-                    </ImgBox>
-                    <TextBox>
-                        <SubTitle>젤리 발바닥</SubTitle>
-                        <BoxContent>귀여워서 5000원..</BoxContent>
-                        <FooterContent>
-                            <DatetimeText>4. 25</DatetimeText>
-                            <PostMoneyText>+5,000원</PostMoneyText>
-                        </FooterContent>
-                    </TextBox>
-                </ContentBox>
             </ListBox>
         </ListContainer>
         </>
-        }
-        </>
+        // }
+        // </>
     )
 }

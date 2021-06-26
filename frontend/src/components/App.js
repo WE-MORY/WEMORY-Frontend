@@ -11,7 +11,7 @@ import Routes from '../Routes/Routes';
 import {TEXT_BLACK} from '../assets/Colors/Color';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
-
+import styled from 'styled-components';
 
 // RESET.CSS
 const GlobalStyle = createGlobalStyle`
@@ -79,6 +79,7 @@ const App = () => {
       <Mobile>
         <Routes />
       </Mobile>
+
       {/* 데스크톱 환경 */}
       <Desktop>
         모바일만 된답니다. 돌아가세요

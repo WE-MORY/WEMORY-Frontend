@@ -7,8 +7,8 @@ import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg'
 import Input from '../../../assets/Input/Input';
 import BackHeader from '../../HeaderPanel/BackHeader';
 
-import {WithDrawCheckAPI} from '../../../api/account/account';
-import {DiaryCreateAPI} from '../../../api/diary/diary';
+import {AccountCreateAPI, WithDrawCheckAPI} from '../../../api/account/account';
+import {DiaryCreateAPI} from '../../../api/account/account';
 import { useSelector } from 'react-redux';
 
 const DepositContainer = styled.div`
@@ -155,7 +155,8 @@ const AccountDeposit = () => {
         fd.append('bank', "우리은행");
         try{
             // 어카운트 생성 API적용
-            const response = await DiaryCreateAPI(fd);
+            // const response = await DiaryCreateAPI(fd);
+            const response = await AccountCreateAPI;
             console.log(response);
             history.push('/');
         }catch(err){
