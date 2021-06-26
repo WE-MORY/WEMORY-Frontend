@@ -1,11 +1,15 @@
 import React, {useRef, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../../assets/Button/Button';
 import { MAIN_COLOR, TEXT_WHITE } from '../../../assets/Colors/Color';
 import { ReactComponent as MainLogo } from '../../../assets/Images/MainLogo.svg'
 import Input from '../../../assets/Input/Input';
 import BackHeader from '../../HeaderPanel/BackHeader';
+
+import {WithDrawCheckAPI} from '../../../api/account/account';
+import {DiaryCreateAPI} from '../../../api/diary/diary';
+import { useSelector } from 'react-redux';
 
 const DepositContainer = styled.div`
     display: flex;
@@ -110,7 +114,7 @@ const AccountDeposit = () => {
     const [accountnumber, Setaccountnumber] = useState('');
     const [accountTitle, SetaccountTitle] = useState('');
 
-
+    const userToken = useSelector(state=>state.auth.currentToken);
 
 
     const handleSelectImg = (e) => {
@@ -139,21 +143,32 @@ const AccountDeposit = () => {
     }
 
     const handleAddAccount = async (e) => {
+        e.preventDefault();
         const fd = new FormData();
-        fd.append('file', imgFile);
+        // userinfo 받기 
+        const user = await WithDrawCheckAPI(userToken);
+        console.log(user.data);
+        fd.append('title', accountTitle);
+        fd.append('user', user.data.id);
+        fd.append('account_num', accountnumber);
+        fd.append('image', imgFile);
+        fd.append('bank', "우리은행");
         try{
             // 어카운트 생성 API적용
+            const response = await DiaryCreateAPI(fd);
+            console.log(response);
+            history.push('/');
         }catch(err){
-            alert(err.response.message);
+            alert(err);
         }
 ; 
         // 계좌 등록 API + Redux State 현 계좌 선택 저장 + 메인으로 이동
-        e.preventDefault();
-        history.push('/');
     }
     
 
     return (
+        <>
+        { userToken == null ? <Redirect to='/' /> : 
         <>
         <BackHeader />
             <DepositContainer>
@@ -177,6 +192,8 @@ const AccountDeposit = () => {
                 }}Width="70%" Value={accountTitle} Hint="일기 별칭을 지어주세요."/>
                 <Button OnClick={handleAddAccount} Text="계좌 등록하기"/>
             </DepositContainer>
+            </>
+        }
         </>
     );
 }

@@ -9,6 +9,8 @@ import {ReactComponent as Burgermenu} from '../../assets/Images/burgermenu.svg';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Button from '../../assets/Button/Button';
+import { useDispatch } from 'react-redux';
+import {ClearToken} from '../../redux/actions/Auth_action';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -65,9 +67,17 @@ const useStyles = makeStyles({
 
 export default function Drawer({SideMenu}) {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [state, setState] = React.useState({
     left: false
   });
+
+
+  const handleLogout = () => {
+      dispatch(ClearToken());
+      
+  }
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -90,21 +100,21 @@ export default function Drawer({SideMenu}) {
       <ProfileDiv>
           <ImgDiv />
             <ProfileTextDiv>
-              <Name>하유민</Name>
+              <Name>최민석</Name>
             </ProfileTextDiv>
       </ProfileDiv>
       <List>
       <ListItem>
           <ListItemText>
             <StyledLink to="/">
-              MAIN
+              메인 화면 가기
             </StyledLink>
           </ListItemText>
         </ListItem>
         <ListItem>
           <ListItemText>
             <StyledLink to="/diarylist">
-              입금 일기장
+              입금 일기장 보기
             </StyledLink>
           </ListItemText>
         </ListItem>
@@ -118,14 +128,21 @@ export default function Drawer({SideMenu}) {
         <ListItem>
           <ListItemText>
             <StyledLink to="/accountlist">
-              입금 계좌 변경
+              일기(계좌) 변경
+            </StyledLink>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>
+            <StyledLink to="/chartlist">
+              월별 그래프 보기
             </StyledLink>
           </ListItemText>
         </ListItem>
         
       </List>
       <BtnDiv>
-        <Button Text={"로그아웃"} Width={"40vw"} Color={"#4B5364"}/>
+        <Button OnClick={handleLogout}Text={"로그아웃"} Width={"40vw"} Color={"#4B5364"}/>
       </BtnDiv>
 
     </div>

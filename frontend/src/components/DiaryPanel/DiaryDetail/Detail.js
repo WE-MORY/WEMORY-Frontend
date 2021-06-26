@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 import styled from 'styled-components'
 import BackHeader from '../../HeaderPanel/BackHeader'
 
@@ -23,10 +25,10 @@ const DateDiv = styled.div`
 
 `
 
-const ImgDiv = styled.img`
-    background-color: brown;
-    width: 100vw;
-    height: 50vh;
+const ImgDiv = styled.div`
+    background: brown;
+    width: 100%;
+    height: 150px;
     margin: 10vh 0;
 `
 const TextDiv = styled.div`
@@ -50,15 +52,19 @@ const Description = styled.span`
 `
 
 export default function Create() {
-    
+
+    const userInfo = useSelector(state => state.auth.currentToken);
+
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
         <BackHeader />
 
         <MainDiv>
-            <DateDiv>2021 . 04 . 30 (금)</DateDiv>
+            <DateDiv>2021 . 5 . 3 (월)</DateDiv>
             <ImgDiv>
-                {/* <img src="../../../assets/Images/textImg/cat1.png" alt="img 안 나와요"></img> */}
+                <img src="https://wemory.s3-ap-northeast-1.amazonaws.com/Post/2021/05/KakaoTalk_20200825_173228027_01.jpg" alt="img 안 나와요" />
             </ImgDiv>
             <TextDiv>
                 <Title>여기는 타이틀 나오는 부분입니다. </Title>
@@ -66,6 +72,8 @@ export default function Create() {
                 <Description>여기는 설명이 나오는 부분입니다.</Description>
             </TextDiv>
         </MainDiv>
+        </>
+        }
         </>
     )
 }

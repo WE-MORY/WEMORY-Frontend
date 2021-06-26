@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import DatePickerComponent from './DatePickerComponent';
 import styled from 'styled-components';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import Header from '../HeaderPanel/Header';
 import { MAIN_COLOR, TEXT_BLACK } from '../../assets/Colors/Color';
+import {ChartMonthDataAPI} from '../../api/chart/chart';
+import { Redirect } from 'react-router';
+import { useSelector } from 'react-redux';
 
 
 const ChartTitle = styled.p`
@@ -176,18 +180,18 @@ const data = [
 
 const ChartList = () => {
 
-    useEffect(() => {
-
-    },[])
-
+    const [DataSet, SetDataSet] = useState([]);   
+    const userInfo = useSelector(state=>state.auth.currentToken);
     return (
+        <>
+        { userInfo == null ? <Redirect to='/login' /> :
         <>
             <Header /> 
             <ChartListContainer>
             <ChartTitle>이번 한 달 간의 발자취를 확인해볼까요?</ChartTitle> 
                 <DatePickerContainer>
                     <span>월 선택</span>
-                    <DatePickerComponent />
+                    <DatePickerComponent  SetDataSet={SetDataSet}/>
                 </DatePickerContainer>
                 <LineChart width={330} height={200} data={data} margin={{top:5, right: 20, bottom: 5, left: 0}} >
                     <Line type="monotone" dataKey="money" stroke={MAIN_COLOR} />
@@ -198,8 +202,11 @@ const ChartList = () => {
                 </LineChart>
                 <ChartDescription>
                     {/* Sort하여 가장 많이 적금한 날 출력! */}
+                    
                 </ChartDescription>
             </ChartListContainer>
+            </>
+            }
         </>
     );
 }

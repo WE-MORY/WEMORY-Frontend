@@ -88,7 +88,7 @@ const AuthNumberContainer = styled.div`
         min-width: 0;
         margin:0;
         width: 30%;
-        height: 44px;
+        height: 40px;
     }
 `;
 
@@ -128,11 +128,15 @@ const Signup = () => {
 
     const handleAuthPhone = async (e) =>{
         e.preventDefault();
-        const response = await PhoneAuthAPI();  
-        console.log(response);
-        const AUTH_TOKEN = response.data.dataBody.CRTF_UNQ_NO;
-        SetIsClick(true);
-        inputRef.current.value = AUTH_TOKEN;
+        try{ 
+            const response = await PhoneAuthAPI();
+            console.log(response)
+            const AUTH_TOKEN = response;
+            SetIsClick(true);
+            inputRef.current.value = AUTH_TOKEN;
+        } catch(err){
+            alert(err);
+        }
     }
 
     const handleAuthCheck = (e) =>{

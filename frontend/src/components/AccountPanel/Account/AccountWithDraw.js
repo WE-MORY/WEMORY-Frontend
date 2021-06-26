@@ -86,7 +86,6 @@ const AccountWithDraw = () => {
 
     const handleAuthToken = async () =>{
        const response = await WithDrawCheckAPI(Token);
-       console.log(response.data.account_num);
        if(response.data.account_num !== ''){
             history.push('/');
        }

@@ -1,7 +1,7 @@
 import {instance} from '../ServerURL';
 
 // 출금 계좌 생성 
-export const AccountCreateAPI = (num, bank) => instance.post('/api2/accounts/',{
+export const AccountCreateAPI = (num) => instance.post('/api2/accounts/',{
     "account_num":num,
     "bank":"우리은행"
 });
