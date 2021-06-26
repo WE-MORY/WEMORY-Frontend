@@ -3,35 +3,14 @@
 // :: Global Reset.css 적용 및 MediaQuery 적용
 // :: Browser Router/Route 설정
 import React from 'react';
-import {
-  Route,
-  BrowserRouter
-} from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import '../assets/CSS/app.css';
-
+import Routes from '../Routes/Routes';
 import {TEXT_BLACK} from '../assets/Colors/Color';
-import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import {Desktop, Mobile} from '../assets/MediaQuery/MediaQuery.js';
-
-import Signup from './AccountPanel/Login/Signup';
-import LoginPage from './AccountPanel/Login/LoginPage';
-
-import Main from './MainPanel/Main';
-
-import List from './DiaryPanel/DiaryList/List';
-import Create from './DiaryPanel/DiaryDetail/Create';
-import Detail from '../components/DiaryPanel/DiaryDetail/Detail';
-
-import AccountList from './AccountPanel/Account/AccountList';
-import AccountWithDraw from './AccountPanel/Account/AccountWithDraw';
-import AccountDeposit from './AccountPanel/Account/AccountDeposit';
-
-import ChartList from './GraphPanel/ChartList';
-import purposeSetting from './purposePanel/PurposeSetting';
 
 
 // RESET.CSS
@@ -90,13 +69,6 @@ border-spacing: 0;
 }
 `;
 
-const MobileContainer = styled.div`
-  font-family: 'Spoqa-Light';
-  width: 100%;
-  height: 640px;
-`;
-
-
 const App = () => {
 
   return (
@@ -104,36 +76,14 @@ const App = () => {
       <GlobalStyle />
       <CssBaseline />
       {/* 모바일 환경 */}
-      <Mobile> 
-        {/* Router 추가 */}
-        <BrowserRouter>
-          <MobileContainer>
-            {/* 메인 페이지 */}
-            <Route exact path='/' component={Main}/>
-            {/* 계좌 링크 출금계좌생성/입금계좌생성/입금계좌리스트 */}
-            <Route exact path='/accountwithdraw' component={AccountWithDraw} />
-            <Route exact path='/accountdeposit' component={AccountDeposit} /> 
-            <Route exact path='/accountlist' component={AccountList} />
-            {/* 차트 */} 
-            <Route exact path='/chartlist' component={ChartList} />
-            {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
-            <Route exact path = '/diarylist' component={List} />
-            <Route exact path = '/diarydetail' component={Detail} />
-            <Route exact path = '/diarycreate' component={Create} />
-            {/* 유저 로그인/회원가입 페이지 */}
-            <Route exact path='/login' component={LoginPage} />
-            <Route exact path='/signup' component={Signup} />
-            {/* 목표 설정 페이지 */}
-            <Route exact path='/purpose' component={purposeSetting} />
-
-          </MobileContainer>
-        </BrowserRouter>
+      <Mobile>
+        <Routes />
       </Mobile>
-      
       {/* 데스크톱 환경 */}
       <Desktop>
         모바일만 된답니다. 돌아가세요
       </Desktop>
+      
     </>
   );
 }

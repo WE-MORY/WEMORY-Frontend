@@ -143,7 +143,7 @@ const Main = () => {
                 <>
                 <TextBox>
                     <SpanStyle>
-                        하옹이 밥 사주기
+                        김아무개
                     </SpanStyle> 
                     추억들
                 </TextBox>
