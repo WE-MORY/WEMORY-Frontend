@@ -128,7 +128,7 @@ const Main = () => {
 
     return (
         <>
-        { userInfo == null ? <Redirect to='/login' /> :
+        {/* { userInfo == null ? <Redirect to='/login' /> : */}
         <>
             <Header />
             

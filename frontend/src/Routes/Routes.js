@@ -15,9 +15,8 @@ import AccountDeposit from '../components/AccountPanel/Account/AccountDeposit';
 
 import ChartList from '../components/GraphPanel/ChartList';
 import purposeSetting from '../components/purposePanel/PurposeSetting';
-import { styled } from "@material-ui/styles";
-// import {Mobile} from '../assets/MediaQuery/MediaQuery.js';
-
+import styled from 'styled-components';
+import ListData from '../components/DiaryPanel/DiaryList/ListData';
 
 const MobileContainer = styled.div`
   font-family: 'Spoqa-Light';
@@ -30,8 +29,8 @@ const Routes = () => {
         <>
         {/* Router 추가 */}
         {/* Router 추가 */}
+        <MobileContainer>
         <BrowserRouter>
-          <MobileContainer>
             {/* 메인 페이지 */}
             <Route exact path='/' component={Main}/>
             {/* 계좌 링크 출금계좌생성/입금계좌생성/입금계좌리스트 */}
@@ -42,6 +41,7 @@ const Routes = () => {
             <Route exact path='/chartlist' component={ChartList} />
             {/* 일기 리스트/일기 상세페이지/일기 생성페이지 */}
             <Route exact path = '/diarylist' component={List} />
+            <Route exact path = '/test' component={ListData} />
             <Route exact path = '/diarydetail' component={Detail} />
             <Route exact path = '/diarycreate' component={Create} />
             {/* 유저 로그인/회원가입 페이지 */}
@@ -49,9 +49,8 @@ const Routes = () => {
             <Route exact path='/signup' component={Signup} />
             {/* 목표 설정 페이지 */}
             <Route exact path='/purpose' component={purposeSetting} />
-
-          </MobileContainer>
         </BrowserRouter>
+        </MobileContainer>
       </>
     );
 };

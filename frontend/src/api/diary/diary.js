@@ -4,7 +4,13 @@ import axios from 'axios';
 
 // 일기 전체 조회 api
 export const DiaryListAPI = () => {
-    const diarylist = axios.get('api1/diaries');
+    const diarylist = axios.get(
+        'api1/diaries',{
+            headers : {
+                'Content-Type' : "application/json"
+            }
+        }
+    );
     console.log(diarylist);
     return diarylist
 }
@@ -19,3 +25,8 @@ export const accountCreateAPI = (num, bank) => {
     );
     return accountcreate
 }
+
+export const UserDiarySearch = () => {
+    const diarysearch = axios.get();
+    return diarysearch;
+} 
