@@ -101,7 +101,7 @@ const Main = () => {
                 <SimpleSlider />
                 <TextBox>
                     <SpanStyle>
-                        옹이 키우기
+                        김아무개
                     </SpanStyle> 
                     추억들
                 </TextBox>
