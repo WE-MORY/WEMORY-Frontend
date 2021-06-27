@@ -3,7 +3,7 @@ import {Route, BrowserRouter} from "react-router-dom";
 import Signup from '../components/AccountPanel/Login/Signup';
 import LoginPage from '../components/AccountPanel/Login/LoginPage';
 
-import Main from '../components/MainPanel/Main';
+import Main from '../pages/Main/Main';
 
 import List from '../components/DiaryPanel/DiaryList/List';
 import Create from '../components/DiaryPanel/DiaryDetail/Create';
